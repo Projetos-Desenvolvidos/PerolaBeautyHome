@@ -75,7 +75,7 @@ body {
         flex-direction: column;
         align-items: center;
         background-color: #F4B7A1;
-        padding-bottom: 40px;
+        padding-bottom: 250px;
         overflow: hidden;
     }
 
@@ -169,6 +169,25 @@ body {
 
     .dot.active {
         opacity: 1;
+    }
+
+    /* PÉROLA */
+    .perola-container {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .img-perola {
+        width: 332px;
+        height: 354px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -123px;
+        /* ajusta o quanto ela invade o fundo */
+        z-index: 100;
     }
 
 }
