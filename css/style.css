@@ -6,5 +6,66 @@
 
 body{
     background-color: #FBEBE6;
+    font-family: Instrument Serif;
+    
 }
 
+
+
+@media (max-width: 768px) {
+
+    /* HERO */
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .titulo {
+        font-size: 40px;
+        text-align: justify;
+        margin: 20px;
+        color: #5B5B5B;
+        font-weight: 400;
+    }
+
+    .efeito {
+        color: #EF9574;
+        font-weight: 400;
+        font-family: Imperial Script;
+    }
+
+    .text-hero {
+        font-size: 16px;
+        margin: 20px;
+        color: #5B5B5B;
+        font-weight: 400;
+    }
+
+    .btn-hero {
+        display: flex;
+        justify-content: center;
+        border-bottom-left-radius:10px;
+        border-top-right-radius:10px;
+        background-color: #EF9574;
+        color: #FBEBE6;
+        border: none;
+        padding: 10px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 20px;
+        box-shadow: #5B5B5B 2px 2px 5px;
+    }
+
+    .mae{
+        display: flex;
+        justify-content: center;
+    }
+
+    .imagem img {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+   
+}

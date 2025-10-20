@@ -2,7 +2,7 @@
 .navbar {
     display: flex;
     height: 100px;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
     background: #F4B7A1;
@@ -11,6 +11,11 @@
     z-index: 1000;
 }
 
+h1{
+    font-size: 30px;
+    color: #FBEBE6;
+    font-weight: 400;
+}
 
 .navbar nav ul {
     display: flex;
@@ -19,6 +24,7 @@
 }
 
 .navbar nav ul li a {
+    font-size: 20px;
     color: #FBEBE6;
     text-decoration: none;
     font-weight: 500;
@@ -26,7 +32,8 @@
 }
 
 .navbar nav ul li a:hover {
-    color: #3db7e7;
+    color: #f06940;
+    border-bottom: 2px solid #f06940;
 }
 
 .menu-toggle {
