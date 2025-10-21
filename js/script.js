@@ -66,12 +66,14 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
     isDragging = false;
   });
 
-  // Inicia na posição inicial
+ 
   setPosition();
 }
 
-// Inicializar ambos os sliders
+
 document.addEventListener("DOMContentLoaded", () => {
   initSlider(".slider-container", ".cards-especialidades", ".dots span", "active");
   initSlider(".slider-container-resultados", ".cards-resultados", ".dots-resultados span", "active-resultado");
 });
+
+

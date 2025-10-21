@@ -1,6 +1,5 @@
  /* === RESULTADOS === */
     .resultados {
-        background-color: #f9f4f0;
         padding: 150px 20px;
         text-align: center;
         position: relative;
@@ -8,7 +7,7 @@
 
     .titulo-resultados {
         font-size: 1.8rem;
-        color: #5B5B5B;
+        color: #5b5b5bad;
         font-weight: 400;
         margin-bottom: 30px;
     }
