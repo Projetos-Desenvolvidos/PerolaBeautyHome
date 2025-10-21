@@ -61,3 +61,42 @@ dots.forEach((dot, index) => {
     prevTranslate = currentTranslate;
   });
 });
+
+// === SLIDER RESULTADOS ===
+const resultadosContainer = document.querySelector('.cards-resultados');
+const resultadoCards = document.querySelectorAll('.card-resultado');
+const dotsResultados = document.querySelectorAll('.dots-resultados .dot');
+
+let currentSlideResultados = 0;
+let endX = 0;
+
+function updateSlideResultados() {
+  resultadosContainer.style.transform = `translateX(-${currentSlideResultados * 100}%)`;
+  dotsResultados.forEach(dot => dot.classList.remove('active'));
+  dotsResultados[currentSlideResultados].classList.add('active');
+}
+
+dotsResultados.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentSlideResultados = index;
+    updateSlideResultados();
+  });
+});
+
+resultadosContainer.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+});
+
+resultadosContainer.addEventListener('touchend', e => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipeResultados();
+});
+
+function handleSwipeResultados() {
+  if (startX - endX > 50 && currentSlideResultados < resultadoCards.length - 1) {
+    currentSlideResultados++;
+  } else if (endX - startX > 50 && currentSlideResultados > 0) {
+    currentSlideResultados--;
+  }
+  updateSlideResultados();
+}

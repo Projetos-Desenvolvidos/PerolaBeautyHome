@@ -190,4 +190,68 @@ body {
         z-index: 100;
     }
 
+    /* === RESULTADOS === */
+    .resultados {
+        background-color: #f9f4f0;
+        padding: 150px 20px;
+        text-align: center;
+        position: relative;
+    }
+
+    .titulo-resultados {
+        font-size: 1.8rem;
+        color: #5B5B5B;
+        font-weight: 400;
+        margin-bottom: 30px;
+    }
+
+    .slider-container-resultados {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    .cards-resultados {
+        display: flex;
+        transition: transform 0.4s ease;
+        touch-action: pan-y;
+    }
+
+    .card-resultado {
+        min-width: 100%;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .card-resultado img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .dots-resultados {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        gap: 6px;
+    }
+
+    .dots-resultados .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #d3d3d3;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .dots-resultados .dot.active-resultado {
+        background-color: #c98b72;
+    }
+
+
 }
