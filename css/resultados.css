@@ -1,7 +1,7 @@
  /* === RESULTADOS === */
  @media (max-width: 768px) {
      .resultados {
-         padding: 150px 20px;
+         padding-top: 150px;
          text-align: center;
          position: relative;
      }
