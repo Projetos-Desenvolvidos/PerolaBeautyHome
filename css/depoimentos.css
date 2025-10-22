@@ -1,6 +1,7 @@
 /* === DEPOIMENTOS === */
 @media (max-width: 768px) {
 .depoimentos {
+    padding: 90px 20px;
     text-align: center;
 }
 
