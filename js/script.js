@@ -16,13 +16,13 @@ toggle.addEventListener('click', () => {
 // Função genérica para criar sliders independentes
 function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) {
   const sliderContainer = document.querySelector(containerSelector);
+  if (!sliderContainer) return; // segurança
+
   const cards = sliderContainer.querySelector(cardSelector);
   const dots = sliderContainer.querySelectorAll(dotsSelector);
 
   let index = 0;
   let startX = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
   let isDragging = false;
 
   // Atualiza posição do slider
@@ -49,8 +49,7 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
 
   cards.addEventListener("touchmove", (e) => {
     if (!isDragging) return;
-    const currentX = e.touches[0].clientX;
-    const diff = startX - currentX;
+    const diff = startX - e.touches[0].clientX;
     if (diff > 50 && index < dots.length - 1) {
       index++;
       setPosition();
@@ -66,14 +65,12 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
     isDragging = false;
   });
 
- 
   setPosition();
 }
 
-
+// Inicializa todos os sliders
 document.addEventListener("DOMContentLoaded", () => {
   initSlider(".slider-container", ".cards-especialidades", ".dots span", "active");
   initSlider(".slider-container-resultados", ".cards-resultados", ".dots-resultados span", "active-resultado");
+  initSlider(".slider-container-depoimentos", ".cards-depoimentos", ".dots-depoimentos span", "active-depoimento");
 });
-
-

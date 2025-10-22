@@ -1,86 +1,86 @@
  /* === RESULTADOS === */
-    .resultados {
-        padding: 150px 20px;
-        text-align: center;
-        position: relative;
-    }
+ .resultados {
+     padding: 150px 20px;
+     text-align: center;
+     position: relative;
+ }
 
-    .titulo-resultados {
-        font-size: 1.8rem;
-        color: #5b5b5bad;
-        font-weight: 400;
-        margin-bottom: 30px;
-    }
+ .titulo-resultados {
+     font-size: 1.8rem;
+     color: #8C8C8C;
+     font-weight: 300;
+     margin-bottom: 30px;
+ }
 
-    .slider-container-resultados {
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-        max-width: 380px;
-        margin: 0 auto;
-    }
+ .slider-container-resultados {
+     overflow: hidden;
+     position: relative;
+     width: 100%;
+     max-width: 380px;
+     margin: 0 auto;
+ }
 
-    .cards-resultados {
-        display: flex;
-        transition: transform 0.4s ease;
-        touch-action: pan-y;
-    }
+ .cards-resultados {
+     display: flex;
+     transition: transform 0.4s ease;
+     touch-action: pan-y;
+ }
 
-    .card-resultado {
-        min-width: 100%;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-    }
+ .card-resultado {
+     min-width: 100%;
+     background: #fff;
+     border-radius: 10px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+     overflow: hidden;
+ }
 
-    .card-resultado img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
+ .card-resultado img {
+     width: 100%;
+     height: auto;
+     display: block;
+ }
 
-    /* === DOTS RESULTADOS MODERNOS === */
-.dots-resultados {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px; 
-    gap: 8px;
-    padding-bottom: 10px; 
-    overflow: visible;
-    
-}
+ /* === DOTS RESULTADOS MODERNOS === */
+ .dots-resultados {
+     display: flex;
+     justify-content: center;
+     margin-top: 20px;
+     gap: 8px;
+     padding-bottom: 10px;
+     overflow: visible;
 
-.dots-resultados .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #dfdfdf;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    transform: scale(1);
-}
+ }
 
-.dots-resultados .dot:hover {
-    transform: scale(1.3);
-    opacity: 0.8;
-}
+ .dots-resultados .dot {
+     width: 12px;
+     height: 12px;
+     border-radius: 50%;
+     background: #dfdfdf;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     transform: scale(1);
+ }
 
-.dots-resultados .dot.active-resultado {
-    background: #ff5959 ;
-    transform: scale(1.5);
-    animation: pulse-resultado 1s infinite alternate;
-}
+ .dots-resultados .dot:hover {
+     transform: scale(1.3);
+     opacity: 0.8;
+ }
 
-/* Animação de pulsar para o dot ativo */
-@keyframes pulse-resultado {
-    0% {
-        transform: scale(1.5);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1.8);
-        opacity: 0.9;
-    }
-}
+ .dots-resultados .dot.active-resultado {
+     background: #ff5959;
+     transform: scale(1.5);
+     animation: pulse-resultado 1s infinite alternate;
+ }
 
+ /* Animação de pulsar para o dot ativo */
+ @keyframes pulse-resultado {
+     0% {
+         transform: scale(1.5);
+         opacity: 1;
+     }
+
+     100% {
+         transform: scale(1.8);
+         opacity: 0.9;
+     }
+ }
