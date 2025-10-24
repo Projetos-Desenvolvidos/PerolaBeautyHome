@@ -13,10 +13,10 @@ toggle.addEventListener('click', () => {
   }
 });
 
-// Função genérica para criar sliders independentes
+/// Função genérica para criar sliders independentes
 function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) {
   const sliderContainer = document.querySelector(containerSelector);
-  if (!sliderContainer) return; // segurança
+  if (!sliderContainer) return;
 
   const cards = sliderContainer.querySelector(cardSelector);
   const dots = sliderContainer.querySelectorAll(dotsSelector);
@@ -25,15 +25,11 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
   let startX = 0;
   let isDragging = false;
 
-  // Atualiza posição do slider
   function setPosition() {
     cards.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((dot, i) => {
-      dot.classList.toggle(activeClass, i === index);
-    });
+    dots.forEach((dot, i) => dot.classList.toggle(activeClass, i === index));
   }
 
-  // Evento de clique nos dots
   dots.forEach((dot, i) => {
     dot.addEventListener("click", () => {
       index = i;
@@ -41,7 +37,6 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
     });
   });
 
-  // Eventos de toque (mobile)
   cards.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
     isDragging = true;
@@ -61,9 +56,7 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
     }
   });
 
-  cards.addEventListener("touchend", () => {
-    isDragging = false;
-  });
+  cards.addEventListener("touchend", () => (isDragging = false));
 
   setPosition();
 }
@@ -73,4 +66,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initSlider(".slider-container", ".cards-especialidades", ".dots span", "active");
   initSlider(".slider-container-resultados", ".cards-resultados", ".dots-resultados span", "active-resultado");
   initSlider(".slider-container-depoimentos", ".cards-depoimentos", ".dots-depoimentos span", "active-depoimento");
+  initSlider(".slider-container-equipe", ".cards-equipe", ".dots-equipe span", "active-equipe");
 });
