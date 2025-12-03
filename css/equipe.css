@@ -1,11 +1,134 @@
-@media (max-width: 768px) {
+/* EQUIPE - DESKTOP */
+@media (min-width: 769px) {
+    .equipe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #FBEBE6;
+        padding: 100px 40px;
+        overflow: hidden;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
 
-   .equipe {
+    .titulo-equipe {
+        text-align: center;
+        font-size: 3rem;
+        color: #5B5B5B;
+        font-weight: 400;
+        margin-bottom: 65px;
+        letter-spacing: -0.02em;
+    }
+
+    .slider-container-equipe {
+        width: 100%;
+        max-width: 1200px;
+        overflow: visible;
+        position: relative;
+    }
+
+    .cards-equipe {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        transition: none;
+    }
+
+    .card-equipe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 42px 32px;
+        background: #fff;
+        border-radius: 22px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(239, 149, 116, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-equipe::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #EF9574 0%, #f7a88b 100%);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+
+    .card-equipe:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-equipe:hover::before {
+        transform: scaleX(1);
+    }
+
+    .card-equipe img {
+        width: 220px;
+        height: 280px;
+        border-radius: 16px;
+        object-fit: cover;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border: 3px solid #fff;
+    }
+
+    .card-equipe:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-equipe h3 {
+        margin-top: 26px;
+        color: #5B5B5B;
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+    }
+
+    .card-equipe .arroba {
+        color: #EF9574;
+        font-weight: 500;
+        margin-bottom: 22px;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+        letter-spacing: 0.01em;
+    }
+
+    .card-equipe:hover .arroba {
+        color: #f7a88b;
+    }
+
+    .card-equipe p {
+        color: #5B5B5B;
+        text-align: center;
+        max-width: 280px;
+        font-size: 0.95rem;
+        line-height: 1.75;
+        margin-top: 12px;
+        letter-spacing: 0.01em;
+    }
+
+    .dots-equipe {
+        display: none;
+    }
+}
+
+/* EQUIPE - MOBILE */
+@media (max-width: 768px) {
+    .equipe {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ded6fa;
-    padding-bottom: 150px;
+    background-color: #FBEBE6;
+    padding: 60px 20px 150px;
     overflow: hidden;
   }
 
@@ -33,33 +156,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 25px;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin: 0 15px;
+    border: 1px solid rgba(239, 149, 116, 0.1);
   }
 
   .card-equipe img {
-    width: 280px;
-    height: 320px;
-    border-radius: 10px;
+    width: 250px;
+    height: 300px;
+    border-radius: 15px;
     object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 3px solid #fff;
   }
 
   .card-equipe h3 {
-    margin-top: 15px;
-    color: #333;
-    font-size: 20px;
+    margin-top: 20px;
+    color: #5B5B5B;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 8px;
   }
 
   .card-equipe .arroba {
-    color: #d18aff;
+    color: #EF9574;
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
   }
 
   .card-equipe p {
-    color: #444;
+    color: #5B5B5B;
     text-align: center;
     max-width: 300px;
     font-size: 15px;
+    line-height: 1.6;
   }
 
   .dots-equipe {

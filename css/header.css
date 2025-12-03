@@ -2,19 +2,39 @@
 .navbar {
     display: flex;
     height: 100px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 15px 40px;
-    background: #F4B7A1;
+    background: linear-gradient(135deg, #F4B7A1 0%, #f5c2b0 100%);
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.navbar .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
+    background: rgba(244, 183, 161, 0.98);
+    backdrop-filter: blur(12px);
+    height: 90px;
 }
 
 h1{
     font-size: 30px;
     color: #FBEBE6;
     font-weight: 400;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar nav ul {
@@ -28,12 +48,28 @@ h1{
     color: #FBEBE6;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #f06940;
+    transition: width 0.3s ease;
 }
 
 .navbar nav ul li a:hover {
     color: #f06940;
-    border-bottom: 2px solid #f06940;
+}
+
+.navbar nav ul li a:hover::after {
+    width: 100%;
 }
 
 .menu-toggle {
@@ -45,19 +81,22 @@ h1{
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        justify-content: space-between;
+    }
+
+    .navbar .navbar-container {
+        max-width: 100%;
+    }
 
     h1 {
         font-size: 25px;
         color: #FBEBE6;
     }
 
-
     .menu-toggle {
         display: block;
-    }
-
-    .navbar {
-        gap: 60px;
     }
 
     .navbar nav ul {

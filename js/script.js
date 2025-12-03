@@ -1,12 +1,30 @@
 // MENU
 const toggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
-const toggleIcon = toggle.querySelector('i');
+const toggleIcon = toggle?.querySelector('i');
 
-toggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  toggleIcon.classList.toggle('fa-times');
-  toggleIcon.classList.toggle('fa-bars');
+if (toggle && toggleIcon) {
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    toggleIcon.classList.toggle('fa-times');
+    toggleIcon.classList.toggle('fa-bars');
+  });
+}
+
+// ===== NAVBAR SCROLL EFFECT =====
+const navbar = document.querySelector('.navbar');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 50) {
+    navbar?.classList.add('scrolled');
+  } else {
+    navbar?.classList.remove('scrolled');
+  }
+  
+  lastScroll = currentScroll;
 });
 
 // ===== SLIDERS GENÉRICOS =====
@@ -73,10 +91,91 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
   setPosition();
 }
 
-// Inicializa todos os sliders
+// ===== ANIMAÇÕES NO SCROLL =====
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+// Observa elementos com classes de animação
+function initScrollAnimations() {
+  const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+  animatedElements.forEach(el => observer.observe(el));
+}
+
+// Adiciona classes de animação aos elementos principais
+function addAnimationClasses() {
+  const sections = document.querySelectorAll('section');
+  sections.forEach((section, index) => {
+    if (index % 2 === 0) {
+      section.classList.add('fade-in-up');
+    } else {
+      section.classList.add('fade-in-left');
+    }
+  });
+
+  const cards = document.querySelectorAll('.card, .card-resultado, .card-depoimento, .card-equipe');
+  cards.forEach((card, index) => {
+    if (index % 2 === 0) {
+      card.classList.add('fade-in-up');
+    } else {
+      card.classList.add('fade-in-right');
+    }
+  });
+}
+
+// ===== SMOOTH SCROLL PARA LINKS DE ÂNCORA =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && href !== '') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        const offsetTop = target.offsetTop - 100;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+        
+        // Fecha menu mobile se estiver aberto
+        if (navLinks?.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          if (toggleIcon) {
+            toggleIcon.classList.remove('fa-times');
+            toggleIcon.classList.add('fa-bars');
+          }
+        }
+      }
+    }
+  });
+});
+
+// Inicializa todos os sliders e animações
 document.addEventListener("DOMContentLoaded", () => {
-  initSlider(".slider-container", ".cards-especialidades", ".dots span", "active");
-  initSlider(".slider-container-resultados", ".cards-resultados", ".dots-resultados span", "active-resultado");
-  initSlider(".slider-container-depoimentos", ".cards-depoimentos", ".dots-depoimentos span", "active-depoimento");
-  initSlider(".slider-container-equipe", ".cards-equipe", ".dots-equipe span", "active-equipe");
+  // Sliders (apenas mobile)
+  if (window.innerWidth <= 768) {
+    initSlider(".slider-container", ".cards-especialidades", ".dots span", "active");
+    initSlider(".slider-container-resultados", ".cards-resultados", ".dots-resultados span", "active-resultado");
+    initSlider(".slider-container-depoimentos", ".cards-depoimentos", ".dots-depoimentos span", "active-depoimento");
+    initSlider(".slider-container-equipe", ".cards-equipe", ".dots-equipe span", "active-equipe");
+  }
+  
+  // Animações de scroll
+  addAnimationClasses();
+  initScrollAnimations();
+  
+  // Adiciona animação inicial aos elementos do hero
+  const heroElements = document.querySelectorAll('.hero .text > *');
+  heroElements.forEach((el, index) => {
+    el.style.animationDelay = `${index * 0.2}s`;
+  });
 });

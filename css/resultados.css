@@ -1,5 +1,69 @@
- /* === RESULTADOS === */
- @media (max-width: 768px) {
+/* === RESULTADOS - DESKTOP === */
+@media (min-width: 769px) {
+    .resultados {
+        padding: 100px 40px;
+        text-align: center;
+        position: relative;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .titulo-resultados {
+        font-size: 2.5rem;
+        color: #8C8C8C;
+        font-weight: 300;
+        margin-bottom: 55px;
+        letter-spacing: -0.02em;
+    }
+
+    .slider-container-resultados {
+        overflow: visible;
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .cards-resultados {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        transition: none;
+    }
+
+    .card-resultado {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .card-resultado:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-resultado img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card-resultado:hover img {
+        transform: scale(1.08);
+    }
+
+    .dots-resultados {
+        display: none;
+    }
+}
+
+/* === RESULTADOS - MOBILE === */
+@media (max-width: 768px) {
      .resultados {
          padding-top: 150px;
          text-align: center;

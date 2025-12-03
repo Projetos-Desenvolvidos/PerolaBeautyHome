@@ -4,12 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Pérola Beauty Home - Salão de beleza especializado em maquiagem, coloração, corte e mechas. Agende seu horário e descubra seu brilho único!">
+    <meta name="keywords" content="salão de beleza, maquiagem, coloração, corte, mechas, beleza, estética, Pérola Beauty Home">
+    <meta name="author" content="Pérola Beauty Home">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://perolabeautyhome.com.br/">
+    <meta property="og:title" content="Pérola Beauty Home - Seu brilho é Único">
+    <meta property="og:description" content="Salão de beleza especializado em maquiagem, coloração, corte e mechas. Agende seu horário!">
+    <meta property="og:image" content="./assets/img-hero.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://perolabeautyhome.com.br/">
+    <meta property="twitter:title" content="Pérola Beauty Home - Seu brilho é Único">
+    <meta property="twitter:description" content="Salão de beleza especializado em maquiagem, coloração, corte e mechas. Agende seu horário!">
+    <meta property="twitter:image" content="./assets/img-hero.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/perola.png">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/especialidades.css">
     <link rel="stylesheet" href="./css/resultados.css">
     <link rel="stylesheet" href="./css/depoimentos.css">
     <link rel="stylesheet" href="./css/equipe.css">
+    <link rel="stylesheet" href="./css/formulario.css">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,45 +50,45 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Serif:ital@0;1&display=swap"
         rel="stylesheet">
-    <title>Pérola Beauty Home</title>
+    
+    <title>Pérola Beauty Home - Seu brilho é Único | Salão de Beleza</title>
 </head>
 
 <body>
     <!-- HEADER -->
     <header class="navbar">
-        <h1>PérolaBeautyHome</h1>
+        <div class="navbar-container">
+            <h1>PérolaBeautyHome</h1>
 
-        <nav>
-            <ul class="nav-links">
-                <li><a href="">Home</a></li>
-                <li><a href="">Serviços</a></li>
-                <li><a href="">O Pérola</a></li>
-                <li><a href="">Contatos</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#equipe">O Pérola</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
 
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
     </header>
 
     <!-- HERO -->
-    <section container="hero">
+    <section class="hero" id="home">
         <div class="text">
-            <h2 class="titulo">Pérola Beauty Home <br>Aqui seu brilho é <span class="efeito">Único</span></h2>
-            <p class="text-hero">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
-                the 1500s,</p>
-            <button class="btn-hero">Quero Agendar!</button>
+            <h1 class="titulo">Pérola Beauty Home <br>Aqui seu brilho é <span class="efeito">Único</span></h1>
+            <p class="text-hero">Transforme sua beleza com nossos serviços especializados em maquiagem, coloração, corte e mechas. Nossa equipe de profissionais qualificados está pronta para realçar sua beleza única e fazer você se sentir especial.</p>
+            <button class="btn-hero" onclick="document.getElementById('formulario-lead').scrollIntoView({behavior: 'smooth'})">Quero Agendar!</button>
         </div>
         <div class="mae">
             <div class="imagem">
-                <img src="./assets/img-hero.png" alt="Imagem de uma mulher com maquiagem">
+                <img src="./assets/img-hero.png" alt="Mulher com maquiagem profissional - Pérola Beauty Home">
             </div>
         </div>
     </section>
 
     <!-- ESPECIALIDADES -->
-    <section class="especialidades">
+    <section class="especialidades" id="servicos">
         <h2 class="titulo-especialidades">Nossas especialidades</h2>
 
         <div class="slider-container">
@@ -70,7 +98,7 @@
                     <h3>Maquiagem</h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                         the industry's standard dummy text ever since the 1500s.</p>
-                    <button class="btn-card">Agendar</button>
+                    <button class="btn-card" onclick="document.getElementById('formulario-lead').scrollIntoView({behavior: 'smooth'})">Agendar</button>
                 </div>
 
                 <div class="card">
@@ -78,7 +106,7 @@
                     <h3>Coloração</h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                         the industry's standard dummy text ever since the 1500s.</p>
-                    <button class="btn-card">Agendar</button>
+                    <button class="btn-card" onclick="document.getElementById('formulario-lead').scrollIntoView({behavior: 'smooth'})">Agendar</button>
                 </div>
 
                 <div class="card">
@@ -86,7 +114,7 @@
                     <h3>Corte</h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                         the industry's standard dummy text ever since the 1500s.</p>
-                    <button class="btn-card">Agendar</button>
+                    <button class="btn-card" onclick="document.getElementById('formulario-lead').scrollIntoView({behavior: 'smooth'})">Agendar</button>
                 </div>
 
                 <div class="card">
@@ -94,7 +122,7 @@
                     <h3>Mechas</h3>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                         the industry's standard dummy text ever since the 1500s.</p>
-                    <button class="btn-card">Agendar</button>
+                    <button class="btn-card" onclick="document.getElementById('formulario-lead').scrollIntoView({behavior: 'smooth'})">Agendar</button>
                 </div>
             </div>
 
@@ -192,7 +220,7 @@
         </div>
     </section>
     <!-- EQUIPE -->
-    <section class="equipe">
+    <section class="equipe" id="equipe">
         <h2 class="titulo-equipe">Conheça nossa equipe</h2>
 
         <div class="slider-container-equipe">
@@ -227,7 +255,93 @@
         </div>
     </section>
 
+    <!-- FORMULÁRIO DE CAPTAÇÃO DE LEADS -->
+    <section class="formulario-section" id="contato">
+        <div class="formulario-container">
+            <div class="formulario-content">
+                <h2 class="formulario-titulo">Agende seu Horário</h2>
+                <p class="formulario-subtitulo">Preencha o formulário abaixo e nossa equipe entrará em contato em breve!</p>
+                
+                <form id="formulario-lead" class="formulario-lead" novalidate>
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                        <span class="error-message"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Telefone/WhatsApp *</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(00) 00000-0000">
+                        <span class="error-message"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                        <span class="error-message"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="servico">Serviço de Interesse *</label>
+                        <select id="servico" name="servico" required>
+                            <option value="">Selecione um serviço</option>
+                            <option value="maquiagem">Maquiagem</option>
+                            <option value="coloracao">Coloração</option>
+                            <option value="corte">Corte</option>
+                            <option value="mechas">Mechas</option>
+                            <option value="combo">Combo Completo</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                        <span class="error-message"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem (Opcional)</label>
+                        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos mais sobre o que você precisa..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <span class="btn-text">Enviar Solicitação</span>
+                        <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i> Enviando...</span>
+                    </button>
+                    
+                    <div class="form-success" id="form-success">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Obrigado! Recebemos sua solicitação. Entraremos em contato em breve!</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Pérola Beauty Home</h3>
+                <p>Seu brilho é único. Transformamos sua beleza com dedicação e profissionalismo.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-phone"></i> (00) 00000-0000</p>
+                <p><i class="fas fa-envelope"></i> contato@perolabeautyhome.com.br</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Pérola Beauty Home. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <script src="./js/script.js"></script>
+    <script src="./js/formulario.js"></script>
 </body>
 
 </html>

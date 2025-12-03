@@ -1,4 +1,135 @@
-/* ESPECIALIDADES */
+/* ESPECIALIDADES - DESKTOP */
+@media (min-width: 769px) {
+    .especialidades {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #F4B7A1;
+        padding: 80px 40px;
+        overflow: hidden;
+    }
+
+    .titulo-especialidades {
+        text-align: center;
+        font-size: 3rem;
+        color: #FBEBE6;
+        font-weight: 400;
+        margin-bottom: 55px;
+        letter-spacing: -0.02em;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .slider-container {
+        max-width: 1400px;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .cards-especialidades {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: 28px;
+        transition: none;
+    }
+
+    .card {
+        flex: 1 1 0;
+        min-width: 280px;
+        max-width: 400px;
+        width: 100%;
+        background-color: #FBEBE6;
+        border-radius: 18px;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+        text-align: left;
+        padding: 28px;
+        box-sizing: border-box;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        margin: 0;
+        border: 1px solid rgba(239, 149, 116, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #EF9574 0%, #f7a88b 100%);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+
+    .card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        border-color: rgba(239, 149, 116, 0.15);
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 12px;
+        margin-bottom: 18px;
+        transition: transform 0.4s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .card:hover img {
+        transform: scale(1.03);
+    }
+
+    .card h3 {
+        font-size: 1.75rem;
+        color: #5B5B5B;
+        margin-bottom: 14px;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+    }
+
+    .card p {
+        font-size: 1rem;
+        color: #5B5B5B;
+        line-height: 1.65;
+        margin-bottom: 22px;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+    }
+
+    .btn-card {
+        border: none;
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background: linear-gradient(135deg, #EF9574 0%, #f7a88b 100%);
+        color: #FBEBE6;
+        padding: 13px 32px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(239, 149, 116, 0.25);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        font-family: "Instrument Serif", serif;
+        letter-spacing: 0.02em;
+    }
+
+    .btn-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(239, 149, 116, 0.35);
+    }
+
+    .dots {
+        display: none;
+    }
+}
+
+/* ESPECIALIDADES - MOBILE */
 @media (max-width: 768px) {
     .especialidades {
         display: flex;
