@@ -1,5 +1,31 @@
 // ===== FORMULÁRIO DE CAPTAÇÃO DE LEADS =====
 
+// Função para formatar mensagem para WhatsApp
+function formatarMensagemWhatsApp(formData) {
+    const servicoNome = {
+        'maquiagem': 'Maquiagem',
+        'coloracao': 'Coloração',
+        'corte': 'Corte',
+        'mechas': 'Mechas',
+        'combo': 'Combo Completo',
+        'outro': 'Outro'
+    };
+
+    let mensagem = `*Nova Solicitação de Agendamento - Pérola Beauty Home*\n\n`;
+    mensagem += `*Nome:* ${formData.nome}\n`;
+    mensagem += `*Telefone:* ${formData.telefone}\n`;
+    mensagem += `*E-mail:* ${formData.email}\n`;
+    mensagem += `*Serviço de Interesse:* ${servicoNome[formData.servico] || formData.servico}\n`;
+    
+    if (formData.mensagem && formData.mensagem.trim()) {
+        mensagem += `*Mensagem:* ${formData.mensagem}\n`;
+    }
+    
+    mensagem += `\n_Enviado através do site em ${new Date().toLocaleString('pt-BR')}_`;
+    
+    return mensagem;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('formulario-lead');
     const telefoneInput = document.getElementById('telefone');
@@ -102,16 +128,25 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            // Aqui você pode integrar com seu backend ou serviço de e-mail
-            // Exemplo: await fetch('/api/leads', { method: 'POST', body: JSON.stringify(formData) });
+            // Formata a mensagem para WhatsApp
+            const mensagemWhatsApp = formatarMensagemWhatsApp(formData);
             
-            // Simulação de envio (remova isso e adicione sua integração real)
-            await new Promise(resolve => setTimeout(resolve, 1500));
-
-            // Salva no localStorage como backup (opcional)
+            // Número do WhatsApp (código do país + DDD + número, sem espaços)
+            const numeroWhatsApp = '5511963185396';
+            
+            // Cria o link do WhatsApp
+            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhatsApp)}`;
+            
+            // Salva no localStorage como backup
             const leads = JSON.parse(localStorage.getItem('leads') || '[]');
             leads.push(formData);
             localStorage.setItem('leads', JSON.stringify(leads));
+
+            // Abre o WhatsApp em nova aba
+            window.open(urlWhatsApp, '_blank');
+            
+            // Simula delay para melhor UX
+            await new Promise(resolve => setTimeout(resolve, 1000));
 
             // Mostra mensagem de sucesso
             const successMessage = document.getElementById('form-success');
