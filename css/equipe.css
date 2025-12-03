@@ -95,6 +95,14 @@
         letter-spacing: 0;
         font-family: "Instrument Serif", serif;
         text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .card-equipe .arroba:hover {
+        color: #f7a88b;
+        transform: translateY(-2px);
     }
 
     .dots-equipe {
@@ -187,6 +195,13 @@
     font-size: 0.85rem;
     font-family: "Instrument Serif", serif;
     text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .card-equipe .arroba:hover {
+    color: #f7a88b;
   }
 
   .card-equipe p {

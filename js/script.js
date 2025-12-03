@@ -33,8 +33,10 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
   if (!sliderContainer) return;
 
   const cards = sliderContainer.querySelector(cardSelector);
+  if (!cards) return;
+
   const dots = sliderContainer.querySelectorAll(dotsSelector);
-  if (!cards || dots.length === 0) return;
+  if (dots.length === 0) return;
 
   let index = 0;
   let startX = 0;
@@ -57,7 +59,10 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
   // Toque (mobile) - melhorado para não interferir com menu
   cards.addEventListener('touchstart', (e) => {
     // Só inicia se o menu não estiver aberto
-    if (navLinks?.classList.contains('active')) return;
+    if (navLinks && navLinks.classList.contains('active')) {
+      isDragging = false;
+      return;
+    }
     
     e.stopPropagation();
     startX = e.touches[0].clientX;
@@ -67,8 +72,11 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
 
   cards.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
-    if (navLinks?.classList.contains('active')) {
+    
+    // Se o menu estiver aberto, cancela o drag
+    if (navLinks && navLinks.classList.contains('active')) {
       isDragging = false;
+      setPosition();
       return;
     }
     
@@ -81,9 +89,11 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
 
   cards.addEventListener('touchend', (e) => {
     if (!isDragging) return;
+    
     e.stopPropagation();
     const diff = startX - currentX;
     const threshold = 50;
+    
     if (Math.abs(diff) > threshold) {
       if (diff > threshold && index < dots.length - 1) {
         index++;
@@ -91,6 +101,7 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
         index--;
       }
     }
+    
     setPosition();
     isDragging = false;
   }, { passive: true });
@@ -174,15 +185,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Inicializa todos os sliders e animações
-document.addEventListener("DOMContentLoaded", () => {
-  // Sliders (apenas mobile)
+// Função para inicializar sliders mobile
+function initMobileSliders() {
   if (window.innerWidth <= 768) {
     initSlider(".slider-container", ".cards-especialidades", ".dots span", "active");
     initSlider(".slider-container-resultados", ".cards-resultados", ".dots-resultados span", "active-resultado");
     initSlider(".slider-container-depoimentos", ".cards-depoimentos", ".dots-depoimentos span", "active-depoimento");
     initSlider(".slider-container-equipe", ".cards-equipe", ".dots-equipe span", "active-equipe");
   }
+}
+
+// Inicializa todos os sliders e animações
+document.addEventListener("DOMContentLoaded", () => {
+  // Sliders (apenas mobile)
+  initMobileSliders();
   
   // Animações de scroll
   addAnimationClasses();
@@ -193,4 +209,15 @@ document.addEventListener("DOMContentLoaded", () => {
   heroElements.forEach((el, index) => {
     el.style.animationDelay = `${index * 0.2}s`;
   });
+});
+
+// Reinicializa sliders ao redimensionar (se necessário)
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (window.innerWidth <= 768) {
+      initMobileSliders();
+    }
+  }, 250);
 });
