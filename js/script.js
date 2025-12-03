@@ -34,6 +34,7 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
 
   const cards = sliderContainer.querySelector(cardSelector);
   const dots = sliderContainer.querySelectorAll(dotsSelector);
+  if (!cards || dots.length === 0) return;
 
   let index = 0;
   let startX = 0;
@@ -53,32 +54,46 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
     cards.style.transform = `translateX(calc(-${index * 100}% - ${diff}px))`;
   }
 
-  // Toque (mobile)
+  // Toque (mobile) - melhorado para não interferir com menu
   cards.addEventListener('touchstart', (e) => {
+    // Só inicia se o menu não estiver aberto
+    if (navLinks?.classList.contains('active')) return;
+    
+    e.stopPropagation();
     startX = e.touches[0].clientX;
     isDragging = true;
     cards.style.transition = 'none';
-  });
+  }, { passive: true });
 
   cards.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
+    if (navLinks?.classList.contains('active')) {
+      isDragging = false;
+      return;
+    }
+    
+    e.preventDefault();
+    e.stopPropagation();
     currentX = e.touches[0].clientX;
     const diff = startX - currentX;
     moveSlider(diff);
-  });
+  }, { passive: false });
 
   cards.addEventListener('touchend', (e) => {
     if (!isDragging) return;
+    e.stopPropagation();
     const diff = startX - currentX;
     const threshold = 50;
-    if (diff > threshold && index < dots.length - 1) {
-      index++;
-    } else if (diff < -threshold && index > 0) {
-      index--;
+    if (Math.abs(diff) > threshold) {
+      if (diff > threshold && index < dots.length - 1) {
+        index++;
+      } else if (diff < -threshold && index > 0) {
+        index--;
+      }
     }
     setPosition();
     isDragging = false;
-  });
+  }, { passive: true });
 
   // Clique nos dots
   dots.forEach((dot, i) => {

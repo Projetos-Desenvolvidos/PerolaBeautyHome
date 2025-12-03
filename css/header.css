@@ -112,6 +112,7 @@ h1{
         gap: 0;
         transition: right 0.3s ease;
         z-index: 999;
+        touch-action: none;
     }
 
     .navbar nav ul li {
