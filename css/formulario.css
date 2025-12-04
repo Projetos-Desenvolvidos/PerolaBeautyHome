@@ -1,7 +1,7 @@
 /* ===== FORMULÁRIO DE CAPTAÇÃO DE LEADS ===== */
 .formulario-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, #FBEBE6 0%, #F4B7A1 100%);
+    background: linear-gradient(135deg, #F3ECE2 0%, #DABE99 100%);
     position: relative;
     overflow: hidden;
 }
@@ -32,7 +32,7 @@
     padding: 45px 35px;
     box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 0.8s ease-out;
-    border: 1px solid rgba(239, 149, 116, 0.1);
+    border: 1px solid rgba(218, 190, 153, 0.1);
 }
 
 .formulario-titulo {
@@ -83,8 +83,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #EF9574;
-    box-shadow: 0 0 0 4px rgba(239, 149, 116, 0.12);
+    border-color: #DABE99;
+    box-shadow: 0 0 0 4px rgba(218, 190, 153, 0.12);
     transform: translateY(-1px);
 }
 
@@ -118,7 +118,7 @@
 .btn-submit {
     width: 100%;
     padding: 16px;
-    background: linear-gradient(135deg, #EF9574 0%, #f7a88b 100%);
+    background: linear-gradient(135deg, #DABE99 0%, #e0c8a8 100%);
     color: #fff;
     border: none;
     border-bottom-left-radius: 10px;
@@ -127,7 +127,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 4px 20px rgba(239, 149, 116, 0.25);
+    box-shadow: 0 4px 20px rgba(218, 190, 153, 0.25);
     position: relative;
     overflow: hidden;
     font-family: "Instrument Serif", serif;
@@ -151,7 +151,7 @@
 
 .btn-submit:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(239, 149, 116, 0.35);
+    box-shadow: 0 8px 25px rgba(218, 190, 153, 0.35);
 }
 
 .btn-submit:active {
@@ -220,7 +220,7 @@
 .footer-section h3 {
     font-size: 1.3rem;
     margin-bottom: 15px;
-    color: #F4B7A1;
+    color: #DABE99;
     font-weight: 400;
 }
 
@@ -231,7 +231,7 @@
 
 .footer-section i {
     margin-right: 8px;
-    color: #EF9574;
+    color: #DABE99;
 }
 
 .social-links {
@@ -247,16 +247,16 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: #EF9574;
-    color: #fff;
+    background: transparent;
+    color: #DABE99;
     border-radius: 50%;
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 1.2rem;
+    font-size: 2.2rem;
 }
 
 .social-links a:hover {
-    background: #f7a88b;
+    color: #e0c8a8;
     transform: translateY(-3px) scale(1.1);
 }
 

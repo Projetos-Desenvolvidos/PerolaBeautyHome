@@ -6,23 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Pérola Beauty Home - Salão de beleza especializado em maquiagem, coloração, corte e mechas. Agende seu horário e descubra seu brilho único!">
-    <meta name="keywords" content="salão de beleza, maquiagem, coloração, corte, mechas, beleza, estética, Pérola Beauty Home">
+    <meta name="description" content="Pérola Beauty Home - Salão de beleza no Tatuapé especializado em maquiagem, coloração, corte e mechas. Profissionais qualificados. Agende seu horário e descubra seu brilho único!">
+    <meta name="keywords" content="salão de beleza tatuapé, salão tatuapé, beleza tatuapé, maquiagem tatuapé, coloração tatuapé, corte cabelo tatuapé, mechas tatuapé, salão de beleza zona leste, Pérola Beauty Home, cabeleireiro tatuapé">
     <meta name="author" content="Pérola Beauty Home">
     <meta name="robots" content="index, follow">
+    <meta name="geo.region" content="BR-SP">
+    <meta name="geo.placename" content="São Paulo">
+    <meta name="geo.position" content="-23.5505;-46.6333">
+    <meta name="ICBM" content="-23.5505, -46.6333">
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="business.business">
     <meta property="og:url" content="https://perolabeautyhome.com.br/">
-    <meta property="og:title" content="Pérola Beauty Home - Seu brilho é Único">
-    <meta property="og:description" content="Salão de beleza especializado em maquiagem, coloração, corte e mechas. Agende seu horário!">
+    <meta property="og:title" content="Pérola Beauty Home - Salão de Beleza no Tatuapé | Seu brilho é Único">
+    <meta property="og:description" content="Salão de beleza no Tatuapé especializado em maquiagem, coloração, corte e mechas. Profissionais qualificados. Agende seu horário!">
     <meta property="og:image" content="./assets/img-hero.png">
+    <meta property="business:contact_data:street_address" content="Tatuapé, São Paulo - SP">
+    <meta property="business:contact_data:locality" content="Tatuapé">
+    <meta property="business:contact_data:region" content="São Paulo">
+    <meta property="business:contact_data:postal_code" content="03000-000">
+    <meta property="business:contact_data:country_name" content="Brasil">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://perolabeautyhome.com.br/">
-    <meta property="twitter:title" content="Pérola Beauty Home - Seu brilho é Único">
-    <meta property="twitter:description" content="Salão de beleza especializado em maquiagem, coloração, corte e mechas. Agende seu horário!">
+    <meta property="twitter:title" content="Pérola Beauty Home - Salão de Beleza no Tatuapé">
+    <meta property="twitter:description" content="Salão de beleza no Tatuapé especializado em maquiagem, coloração, corte e mechas. Profissionais qualificados. Agende seu horário!">
     <meta property="twitter:image" content="./assets/img-hero.png">
     
     <!-- Favicon -->
@@ -51,7 +60,76 @@
         href="https://fonts.googleapis.com/css2?family=Imperial+Script&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Instrument+Serif:ital@0;1&display=swap"
         rel="stylesheet">
     
-    <title>Pérola Beauty Home - Seu brilho é Único | Salão de Beleza</title>
+    <title>Pérola Beauty Home - Salão de Beleza no Tatuapé | Maquiagem, Coloração, Corte e Mechas</title>
+    
+    <!-- Schema.org Structured Data - LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Pérola Beauty Home",
+      "image": "./assets/img-hero.png",
+      "description": "Salão de beleza no Tatuapé especializado em maquiagem, coloração, corte e mechas. Profissionais qualificados e apaixonados pelo que fazem.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tatuapé",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-23.5505",
+        "longitude": "-46.6333"
+      },
+      "url": "https://perolabeautyhome.com.br",
+      "telephone": "+55-11-96318-5396",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "50"
+      },
+      "service": [
+        {
+          "@type": "Service",
+          "name": "Maquiagem",
+          "description": "Maquiagem profissional para todos os tipos de eventos"
+        },
+        {
+          "@type": "Service",
+          "name": "Coloração",
+          "description": "Coloração de cabelo profissional com produtos de qualidade"
+        },
+        {
+          "@type": "Service",
+          "name": "Corte",
+          "description": "Cortes modernos e personalizados"
+        },
+        {
+          "@type": "Service",
+          "name": "Mechas",
+          "description": "Mechas e luzes para realçar sua beleza"
+        }
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "Tatuapé, São Paulo"
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -77,7 +155,7 @@
     <section class="hero" id="home">
         <div class="text">
             <h1 class="titulo">Pérola Beauty Home <br>Aqui seu brilho é <span class="efeito">Único</span></h1>
-            <p class="text-hero">Transforme sua beleza com nossos serviços especializados em maquiagem, coloração, corte e mechas. Nossa equipe de profissionais qualificados está pronta para realçar sua beleza única e fazer você se sentir especial.</p>
+            <p class="text-hero">Salão de beleza no Tatuapé especializado em maquiagem, coloração, corte e mechas. Nossa equipe de profissionais qualificados está pronta para realçar sua beleza única e fazer você se sentir especial. Venha nos visitar no Tatuapé, São Paulo!</p>
             <button class="btn-hero" onclick="document.getElementById('formulario-lead').scrollIntoView({behavior: 'smooth'})">Quero Agendar!</button>
         </div>
         <div class="mae">
@@ -142,6 +220,7 @@
     <!-- RESULTADOS -->
     <section class="resultados">
         <h2 class="titulo-resultados">Resultados que falam por si!</h2>
+        <p class="subtitulo-resultados">Transformações reais de clientes satisfeitas</p>
 
         <div class="slider-container-resultados">
             <div class="cards-resultados">
@@ -341,12 +420,14 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Pérola Beauty Home</h3>
-                <p>Seu brilho é único. Transformamos sua beleza com dedicação e profissionalismo.</p>
+                <p>Salão de beleza no Tatuapé, São Paulo. Seu brilho é único. Transformamos sua beleza com dedicação e profissionalismo.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Tatuapé, Zona Leste - São Paulo, SP</p>
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
-                <p><i class="fas fa-phone"></i> (00) 00000-0000</p>
+                <p><i class="fas fa-phone"></i> (11) 96318-5396</p>
                 <p><i class="fas fa-envelope"></i> contato@perolabeautyhome.com.br</p>
+                <p><i class="fas fa-map-marker-alt"></i> Tatuapé, São Paulo - SP</p>
             </div>
             <div class="footer-section">
                 <h3>Redes Sociais</h3>

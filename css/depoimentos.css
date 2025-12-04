@@ -43,7 +43,7 @@
     }
 
     .card-depoimento {
-        background: linear-gradient(135deg, #f5b9a6 0%, #f8c8b8 100%);
+        background: linear-gradient(135deg, #DABE99 0%, #e0c8a8 100%);
         border-radius: 0;
         padding: 40px;
         color: #1f1f1f;
@@ -59,7 +59,7 @@
         top: 15px;
         left: 20px;
         font-size: 4rem;
-        color: rgba(239, 149, 116, 0.2);
+        color: rgba(218, 190, 153, 0.2);
         font-family: "Imperial Script", cursive;
         line-height: 1;
     }
@@ -111,7 +111,7 @@
     }
 
     .autor .autor-avatar {
-        background: linear-gradient(135deg, #EF9574 0%, #f7a88b 100%);
+        background: linear-gradient(135deg, #DABE99 0%, #e0c8a8 100%);
         color: #fff;
     }
 
@@ -228,7 +228,7 @@
 }
 
 .autor .autor-avatar {
-    background: linear-gradient(135deg, #EF9574 0%, #f7a88b 100%);
+    background: linear-gradient(135deg, #DABE99 0%, #e0c8a8 100%);
     color: #fff;
 }
 

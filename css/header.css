@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     padding: 15px 40px;
-    background: linear-gradient(135deg, #F4B7A1 0%, #f5c2b0 100%);
+    background: linear-gradient(135deg, #DABE99 0%, #e0c8a8 100%);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -24,7 +24,7 @@
 
 .navbar.scrolled {
     box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12);
-    background: rgba(244, 183, 161, 0.98);
+    background: rgba(218, 190, 153, 0.98);
     backdrop-filter: blur(12px);
     height: 90px;
 }
@@ -60,12 +60,12 @@ h1{
     left: 0;
     width: 0;
     height: 2px;
-    background: #f06940;
+    background: #F3ECE2;
     transition: width 0.3s ease;
 }
 
 .navbar nav ul li a:hover {
-    color: #f06940;
+    color: #F3ECE2;
 }
 
 .navbar nav ul li a:hover::after {
@@ -125,7 +125,7 @@ h1{
         display: block;
         padding: 20px 0;
         font-size: 18px;
-        background-color: #F4B7A1;
+        background-color: #DABE99;
     }
 
     .navbar nav ul li:last-child {

@@ -4,7 +4,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #FBEBE6;
+        background-color: #F3ECE2;
         padding: 100px 40px;
         overflow: hidden;
         max-width: 1400px;
@@ -88,7 +88,7 @@
     }
 
     .card-equipe .arroba {
-        color: #EF9574;
+        color: #DABE99;
         font-weight: 400;
         margin-bottom: 0;
         font-size: 0.9rem;
@@ -101,7 +101,7 @@
     }
 
     .card-equipe .arroba:hover {
-        color: #f7a88b;
+        color: #e0c8a8;
         transform: translateY(-2px);
     }
 
@@ -116,7 +116,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FBEBE6;
+    background-color: #F3ECE2;
     padding: 60px 20px 150px;
     overflow: hidden;
   }

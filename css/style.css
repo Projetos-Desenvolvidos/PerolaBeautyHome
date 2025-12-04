@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background-color: #FBEBE6;
+    background-color: #F3ECE2;
     font-family: "Instrument Serif", serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -166,7 +166,7 @@ body {
     }
 
     .efeito {
-        color: #EF9574;
+        color: #DABE99;
         font-weight: 400;
         font-family: "Imperial Script", cursive;
         font-size: 4rem;
@@ -190,14 +190,14 @@ body {
         align-items: center;
         border-bottom-left-radius: 10px;
         border-top-right-radius: 10px;
-        background: linear-gradient(135deg, #EF9574 0%, #f7a88b 100%);
+        background: linear-gradient(135deg, #DABE99 0%, #e0c8a8 100%);
         color: #FBEBE6;
         border: none;
         padding: 16px 42px;
         font-size: 1.1rem;
         font-weight: 500;
         cursor: pointer;
-        box-shadow: 0 4px 20px rgba(239, 149, 116, 0.25);
+        box-shadow: 0 4px 20px rgba(218, 190, 153, 0.25);
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         animation: fadeInUp 1.2s ease-in-out;
         font-family: "Instrument Serif", serif;
@@ -223,7 +223,7 @@ body {
 
     .btn-hero:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(239, 149, 116, 0.35);
+        box-shadow: 0 8px 25px rgba(218, 190, 153, 0.35);
     }
 
     .btn-hero:active {
@@ -269,7 +269,7 @@ body {
 
     .efeito {
         margin-left: 23px;
-        color: #EF9574;
+        color: #DABE99;
         font-weight: 400;
         font-family: "Imperial Script", cursive;
         animation: pulse 3s infinite ease-in-out;
@@ -291,7 +291,7 @@ body {
         align-items: center;
         border-bottom-left-radius: 10px;
         border-top-right-radius: 10px;
-        background-color: #EF9574;
+        background-color: #DABE99;
         color: #FBEBE6;
         border: none;
         padding: 10px 25px;
@@ -305,7 +305,7 @@ body {
 
     .btn-hero:hover {
         transform: translateY(-4px) scale(1.05);
-        background-color: #f7a88b;
+        background-color: #e0c8a8;
         box-shadow: 0 6px 15px rgba(91, 91, 91, 0.4);
     }
 
@@ -391,7 +391,7 @@ body {
 
     .dots span:hover,
     .dots-resultados span:hover {
-        background: #ef9574;
+        background: #DABE99;
         transform: scale(1.2);
     }
 

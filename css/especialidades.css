@@ -4,7 +4,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #F4B7A1;
+        background-color: #DABE99;
         padding: 80px 40px;
         overflow: hidden;
     }
@@ -39,7 +39,7 @@
         min-width: 280px;
         max-width: 400px;
         width: 100%;
-        background-color: #FBEBE6;
+        background-color: #F3ECE2;
         border-radius: 18px;
         box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
         text-align: left;
@@ -47,7 +47,7 @@
         box-sizing: border-box;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         margin: 0;
-        border: 1px solid rgba(239, 149, 116, 0.05);
+        border: 1px solid rgba(218, 190, 153, 0.05);
         position: relative;
         overflow: hidden;
     }
@@ -59,7 +59,7 @@
         left: 0;
         right: 0;
         height: 3px;
-        background: linear-gradient(90deg, #EF9574 0%, #f7a88b 100%);
+        background: linear-gradient(90deg, #DABE99 0%, #e0c8a8 100%);
         transform: scaleX(0);
         transition: transform 0.4s ease;
     }
@@ -71,7 +71,7 @@
     .card:hover {
         transform: translateY(-8px);
         box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-        border-color: rgba(239, 149, 116, 0.15);
+        border-color: rgba(218, 190, 153, 0.15);
     }
 
     .card img {
@@ -107,13 +107,13 @@
         border: none;
         border-bottom-left-radius: 10px;
         border-top-right-radius: 10px;
-        background: linear-gradient(135deg, #EF9574 0%, #f7a88b 100%);
+        background: linear-gradient(135deg, #DABE99 0%, #e0c8a8 100%);
         color: #FBEBE6;
         padding: 13px 32px;
         font-size: 1rem;
         font-weight: 500;
         cursor: pointer;
-        box-shadow: 0 4px 15px rgba(239, 149, 116, 0.25);
+        box-shadow: 0 4px 15px rgba(218, 190, 153, 0.25);
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         font-family: "Instrument Serif", serif;
         letter-spacing: 0.02em;
@@ -121,7 +121,7 @@
 
     .btn-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(239, 149, 116, 0.35);
+        box-shadow: 0 6px 20px rgba(218, 190, 153, 0.35);
     }
 
     .dots {
@@ -135,7 +135,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #F4B7A1;
+        background-color: #DABE99;
         padding-bottom: 250px;
         overflow: hidden;
     }
@@ -164,7 +164,7 @@
     .card {
         flex: 0 0 90%;
         margin: 0 5%;
-        background-color: #FBEBE6;
+        background-color: #F3ECE2;
         border-radius: 10px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         text-align: left;
@@ -197,7 +197,7 @@
         border: none;
         border-bottom-left-radius: 10px;
         border-top-right-radius: 10px;
-        background-color: #EF9574;
+        background-color: #DABE99;
         color: #FBEBE6;
         padding: 10px 25px;
         font-size: 15px;
