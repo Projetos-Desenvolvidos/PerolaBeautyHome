@@ -117,45 +117,106 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
   setPosition();
 }
 
-// ===== ANIMAÇÕES NO SCROLL =====
+// ===== ANIMAÇÕES NO SCROLL MELHORADAS =====
 const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
+  threshold: 0.15,
+  rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
+      // Remove o observer após a animação para melhor performance
+      observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
 
 // Observa elementos com classes de animação
 function initScrollAnimations() {
-  const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
-  animatedElements.forEach(el => observer.observe(el));
+  const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .fade-in-scale, .fade-in-rotate');
+  animatedElements.forEach((el, index) => {
+    // Adiciona delay progressivo para efeito cascata
+    el.style.transitionDelay = `${(index % 3) * 0.1}s`;
+    observer.observe(el);
+  });
 }
 
 // Adiciona classes de animação aos elementos principais
 function addAnimationClasses() {
+  // Seções principais
   const sections = document.querySelectorAll('section');
   sections.forEach((section, index) => {
+    section.classList.add('fade-in-up');
+  });
+
+  // Títulos das seções
+  const titles = document.querySelectorAll('h2, .titulo-especialidades, .titulo-resultados, .titulo-depoimentos, .titulo-equipe, .formulario-titulo');
+  titles.forEach((title, index) => {
     if (index % 2 === 0) {
-      section.classList.add('fade-in-up');
+      title.classList.add('fade-in-left');
     } else {
-      section.classList.add('fade-in-left');
+      title.classList.add('fade-in-right');
     }
   });
 
-  const cards = document.querySelectorAll('.card, .card-resultado, .card-depoimento, .card-equipe');
+  // Cards de especialidades
+  const cards = document.querySelectorAll('.card');
   cards.forEach((card, index) => {
+    card.classList.add('fade-in-scale');
+    card.style.transitionDelay = `${index * 0.15}s`;
+  });
+
+  // Cards de resultados
+  const resultCards = document.querySelectorAll('.card-resultado');
+  resultCards.forEach((card, index) => {
+    card.classList.add('fade-in-up');
+    card.style.transitionDelay = `${index * 0.1}s`;
+  });
+
+  // Cards de depoimentos
+  const depoimentoCards = document.querySelectorAll('.card-depoimento');
+  depoimentoCards.forEach((card, index) => {
     if (index % 2 === 0) {
-      card.classList.add('fade-in-up');
+      card.classList.add('fade-in-left');
     } else {
       card.classList.add('fade-in-right');
     }
+    card.style.transitionDelay = `${index * 0.12}s`;
   });
+
+  // Cards de equipe
+  const equipeCards = document.querySelectorAll('.card-equipe');
+  equipeCards.forEach((card, index) => {
+    card.classList.add('fade-in-scale');
+    card.style.transitionDelay = `${index * 0.2}s`;
+  });
+
+  // Subtítulos
+  const subtitles = document.querySelectorAll('.subtitulo-resultados, .subtitulo-equipe, .formulario-subtitulo, .avaliacao-texto');
+  subtitles.forEach(subtitle => {
+    subtitle.classList.add('fade-in-up');
+  });
+
+  // Formulário
+  const formGroups = document.querySelectorAll('.form-group');
+  formGroups.forEach((group, index) => {
+    group.classList.add('fade-in-up');
+    group.style.transitionDelay = `${index * 0.1}s`;
+  });
+
+  // Pérola decorativa
+  const perola = document.querySelector('.perola-container');
+  if (perola) {
+    perola.classList.add('fade-in-scale');
+  }
+
+  // Footer
+  const footer = document.querySelector('.footer');
+  if (footer) {
+    footer.classList.add('fade-in-up');
+  }
 }
 
 // ===== SMOOTH SCROLL PARA LINKS DE ÂNCORA =====
@@ -209,6 +270,20 @@ document.addEventListener("DOMContentLoaded", () => {
   heroElements.forEach((el, index) => {
     el.style.animationDelay = `${index * 0.2}s`;
   });
+
+  // Anima o hero imediatamente ao carregar
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    hero.classList.add('visible');
+  }
+
+  // Anima elementos do hero com delay
+  setTimeout(() => {
+    heroElements.forEach((el, index) => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+  }, 100);
 });
 
 // Reinicializa sliders ao redimensionar (se necessário)

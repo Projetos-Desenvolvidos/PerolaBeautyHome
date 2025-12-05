@@ -1,32 +1,43 @@
-/* EQUIPE - DESKTOP */
+/* ===== EQUIPE - DESKTOP ===== */
 @media (min-width: 769px) {
     .equipe {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: #F3ECE2;
-        padding: 100px 40px;
+        background: transparent;
+        padding: 180px 80px;
         overflow: hidden;
         max-width: 1400px;
         margin: 0 auto;
+        position: relative;
+    }
+
+    .equipe::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(67, 55, 39, 0.1), transparent);
     }
 
     .titulo-equipe {
         text-align: center;
         font-size: 3.5rem;
-        color: #5B5B5B;
-        font-weight: 400;
-        margin-bottom: 15px;
-        letter-spacing: -0.02em;
+        color: #433727;
+        font-weight: 500;
+        margin-bottom: 24px;
+        letter-spacing: -0.04em;
         font-family: "Instrument Serif", serif;
     }
 
     .subtitulo-equipe {
         text-align: center;
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: #5B5B5B;
         font-weight: 400;
-        margin-bottom: 60px;
+        margin-bottom: 70px;
         letter-spacing: 0.02em;
         font-family: "Instrument Serif", serif;
         text-transform: uppercase;
@@ -43,14 +54,14 @@
         display: flex;
         justify-content: center;
         flex-wrap: nowrap;
-        gap: 28px;
+        gap: 40px;
         transition: none;
     }
 
     .card-equipe {
         flex: 1 1 0;
-        min-width: 200px;
-        max-width: 280px;
+        min-width: 220px;
+        max-width: 300px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -59,10 +70,14 @@
         background: transparent;
         border-radius: 0;
         box-shadow: none;
-        transition: none;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         border: none;
         position: relative;
         overflow: visible;
+    }
+
+    .card-equipe:hover {
+        transform: translateY(-8px);
     }
 
     .card-equipe img {
@@ -70,39 +85,47 @@
         height: auto;
         aspect-ratio: 3/4;
         object-fit: cover;
-        border: 1px solid #000;
+        border: 2px solid #433727;
         border-radius: 0;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         display: block;
+        transition: all 0.4s ease;
+        filter: grayscale(20%);
+    }
+
+    .card-equipe:hover img {
+        filter: grayscale(0%);
+        box-shadow: 0 12px 40px rgba(67, 55, 39, 0.2);
     }
 
     .card-equipe h3 {
         margin-top: 0;
-        color: #5B5B5B;
-        font-size: 1.1rem;
-        font-weight: 400;
-        margin-bottom: 5px;
+        color: #433727;
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin-bottom: 8px;
         letter-spacing: 0;
         font-family: "Instrument Serif", serif;
         text-align: center;
     }
 
     .card-equipe .arroba {
-        color: #DABE99;
+        color: #5B5B5B;
         font-weight: 400;
         margin-bottom: 0;
-        font-size: 0.9rem;
+        font-size: 1rem;
         letter-spacing: 0;
         font-family: "Instrument Serif", serif;
         text-align: center;
         text-decoration: none;
         transition: all 0.3s ease;
         display: inline-block;
+        border-bottom: 1px solid transparent;
     }
 
     .card-equipe .arroba:hover {
-        color: #e0c8a8;
-        transform: translateY(-2px);
+        color: #433727;
+        border-bottom-color: #433727;
     }
 
     .dots-equipe {
@@ -110,121 +133,128 @@
     }
 }
 
-/* EQUIPE - MOBILE */
+/* ===== EQUIPE - MOBILE ===== */
 @media (max-width: 768px) {
     .equipe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #F3ECE2;
-    padding: 60px 20px 150px;
-    overflow: hidden;
-  }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: transparent;
+        padding: 100px 20px 120px;
+        overflow: hidden;
+    }
 
-  .titulo-equipe {
-    text-align: center;
-    font-size: 2.8rem;
-    color: #5B5B5B;
-    font-weight: 400;
-    padding: 30px 30px 10px;
-    font-family: "Instrument Serif", serif;
-  }
+    .titulo-equipe {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #433727;
+        font-weight: 500;
+        padding: 0 20px 20px;
+        font-family: "Instrument Serif", serif;
+    }
 
-  .subtitulo-equipe {
-    text-align: center;
-    font-size: 1rem;
-    color: #5B5B5B;
-    font-weight: 400;
-    margin-bottom: 40px;
-    padding: 0 20px;
-    letter-spacing: 0.02em;
-    font-family: "Instrument Serif", serif;
-    text-transform: uppercase;
-  }
+    .subtitulo-equipe {
+        text-align: center;
+        font-size: 0.95rem;
+        color: #5B5B5B;
+        font-weight: 400;
+        margin-bottom: 50px;
+        padding: 0 20px;
+        letter-spacing: 0.02em;
+        font-family: "Instrument Serif", serif;
+        text-transform: uppercase;
+    }
 
-  .slider-container-equipe {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
+    .slider-container-equipe {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
 
-  .cards-equipe {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
+    .cards-equipe {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
 
-  .card-equipe {
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 20px;
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    margin: 0;
-    border: none;
-  }
+    .card-equipe {
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+        border: none;
+    }
 
-  .card-equipe img {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    border: 1px solid #000;
-    border-radius: 0;
-    margin-bottom: 15px;
-    display: block;
-  }
+    .card-equipe img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        border: 2px solid #433727;
+        border-radius: 0;
+        margin-bottom: 20px;
+        display: block;
+    }
 
-  .card-equipe h3 {
-    margin-top: 0;
-    color: #5B5B5B;
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-bottom: 5px;
-    font-family: "Instrument Serif", serif;
-    text-align: center;
-  }
+    .card-equipe h3 {
+        margin-top: 0;
+        color: #433727;
+        font-size: 1.4rem;
+        font-weight: 500;
+        margin-bottom: 8px;
+        font-family: "Instrument Serif", serif;
+        text-align: center;
+    }
 
-  .card-equipe .arroba {
-    color: #EF9574;
-    font-weight: 400;
-    margin-bottom: 0;
-    font-size: 1rem;
-    font-family: "Instrument Serif", serif;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
-  }
+    .card-equipe .arroba {
+        color: #5B5B5B;
+        font-weight: 400;
+        margin-bottom: 0;
+        font-size: 1.05rem;
+        font-family: "Instrument Serif", serif;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+        border-bottom: 1px solid transparent;
+    }
 
-  .card-equipe .arroba:hover {
-    color: #f7a88b;
-  }
+    .card-equipe .arroba:hover {
+        color: #433727;
+        border-bottom-color: #433727;
+    }
 
-  .card-equipe p {
-    display: none;
-  }
+    .card-equipe p {
+        display: none;
+    }
 
-  .dots-equipe {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-    gap: 6px;
-  }
+    .dots-equipe {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 8px;
+    }
 
-  .dots-equipe span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #c9c9c9;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
+    .dots-equipe span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(67, 55, 39, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
 
-  .dots-equipe span.active-equipe {
-    background-color: #5b5b5b;
-  }
+    .dots-equipe span:hover {
+        background-color: rgba(67, 55, 39, 0.5);
+    }
+
+    .dots-equipe span.active-equipe {
+        background-color: #433727;
+        transform: scale(1.3);
+    }
 }
