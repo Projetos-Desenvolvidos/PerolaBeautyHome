@@ -1,0 +1,230 @@
+/* ===== BENEFÍCIOS - DESKTOP ===== */
+@media (min-width: 769px) {
+    .beneficios {
+        padding: 180px 80px;
+        text-align: center;
+        position: relative;
+        background: transparent;
+    }
+
+    .beneficios-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .titulo-beneficios {
+        font-size: 3.5rem;
+        color: #433727;
+        font-weight: 500;
+        margin-bottom: 20px;
+        letter-spacing: -0.04em;
+        font-family: "Instrument Serif", serif;
+    }
+
+    .subtitulo-beneficios {
+        font-size: 1.2rem;
+        color: #5B5B5B;
+        margin-bottom: 80px;
+        font-weight: 400;
+    }
+
+    .cards-beneficios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+    }
+
+    .card-beneficio {
+        background: #FFFFFF;
+        border: 2px solid rgba(67, 55, 39, 0.08);
+        padding: 50px 40px;
+        text-align: center;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-beneficio::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: #433727;
+        transform: scaleX(0);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-beneficio:hover::before {
+        transform: scaleX(1);
+    }
+
+    .card-beneficio:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(67, 55, 39, 0.12);
+        border-color: rgba(67, 55, 39, 0.18);
+    }
+
+    .icon-beneficio {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 30px;
+        background: linear-gradient(135deg, rgba(218, 190, 153, 0.1) 0%, rgba(218, 190, 153, 0.05) 100%);
+        border: 2px solid rgba(67, 55, 39, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+    }
+
+    .icon-beneficio i {
+        font-size: 2.5rem;
+        color: #433727;
+        transition: all 0.4s ease;
+    }
+
+    .card-beneficio:hover .icon-beneficio {
+        background: #433727;
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .card-beneficio:hover .icon-beneficio i {
+        color: #FFFFFF;
+    }
+
+    .card-beneficio h3 {
+        font-size: 1.5rem;
+        color: #433727;
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-family: "Instrument Serif", serif;
+    }
+
+    .card-beneficio p {
+        font-size: 1rem;
+        color: #5B5B5B;
+        line-height: 1.7;
+        font-weight: 400;
+    }
+}
+
+/* ===== BENEFÍCIOS - MOBILE ===== */
+@media (max-width: 768px) {
+    .beneficios {
+        padding: 100px 20px;
+        text-align: center;
+        background: transparent;
+    }
+
+    .titulo-beneficios {
+        font-size: 2.5rem;
+        color: #433727;
+        font-weight: 500;
+        margin-bottom: 16px;
+        font-family: "Instrument Serif", serif;
+    }
+
+    .subtitulo-beneficios {
+        font-size: 1rem;
+        color: #5B5B5B;
+        margin-bottom: 50px;
+    }
+
+    .cards-beneficios {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .card-beneficio {
+        background: #FFFFFF;
+        border: 2px solid rgba(67, 55, 39, 0.08);
+        padding: 40px 30px;
+        text-align: center;
+    }
+
+    .icon-beneficio {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 25px;
+        background: linear-gradient(135deg, rgba(218, 190, 153, 0.1) 0%, rgba(218, 190, 153, 0.05) 100%);
+        border: 2px solid rgba(67, 55, 39, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon-beneficio i {
+        font-size: 2rem;
+        color: #433727;
+    }
+
+    .card-beneficio h3 {
+        font-size: 1.3rem;
+        color: #433727;
+        margin-bottom: 16px;
+        font-weight: 500;
+        font-family: "Instrument Serif", serif;
+    }
+
+    .card-beneficio p {
+        font-size: 0.95rem;
+        color: #5B5B5B;
+        line-height: 1.6;
+    }
+}
+
+/* ===== BENEFÍCIOS - TABLET ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .beneficios {
+        padding: 160px 50px;
+    }
+
+    .titulo-beneficios {
+        font-size: 3rem;
+    }
+
+    .cards-beneficios {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+}
+
+/* ===== BENEFÍCIOS - MOBILE PEQUENO ===== */
+@media (max-width: 480px) {
+    .beneficios {
+        padding: 80px 15px;
+    }
+
+    .titulo-beneficios {
+        font-size: 2rem;
+    }
+
+    .subtitulo-beneficios {
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+    }
+
+    .card-beneficio {
+        padding: 35px 25px;
+    }
+
+    .icon-beneficio {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+
+    .icon-beneficio i {
+        font-size: 1.8rem;
+    }
+
+    .card-beneficio h3 {
+        font-size: 1.2rem;
+    }
+}
+

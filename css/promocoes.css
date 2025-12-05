@@ -1,0 +1,282 @@
+/* ===== PROMOÇÕES - DESKTOP ===== */
+@media (min-width: 769px) {
+    .promocoes {
+        padding: 180px 80px;
+        text-align: center;
+        background: transparent;
+        position: relative;
+    }
+
+    .promocoes-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .titulo-promocoes {
+        font-size: 3.5rem;
+        color: #433727;
+        font-weight: 500;
+        margin-bottom: 20px;
+        letter-spacing: -0.04em;
+        font-family: "Instrument Serif", serif;
+    }
+
+    .subtitulo-promocoes {
+        font-size: 1.2rem;
+        color: #5B5B5B;
+        margin-bottom: 80px;
+        font-weight: 400;
+    }
+
+    .cards-promocoes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+    }
+
+    .card-promocao {
+        background: #FFFFFF;
+        border: 2px solid rgba(67, 55, 39, 0.08);
+        padding: 50px 40px;
+        text-align: center;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-promocao.destaque {
+        border: 3px solid #433727;
+        transform: scale(1.05);
+    }
+
+    .card-promocao::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: #433727;
+        transform: scaleX(0);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-promocao:hover::before {
+        transform: scaleX(1);
+    }
+
+    .card-promocao:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 25px 70px rgba(67, 55, 39, 0.15);
+        border-color: rgba(67, 55, 39, 0.2);
+    }
+
+    .card-promocao.destaque:hover {
+        transform: translateY(-12px) scale(1.07);
+    }
+
+    .badge-promocao {
+        display: inline-block;
+        background: #433727;
+        color: #FFFFFF;
+        padding: 8px 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .card-promocao h3 {
+        font-size: 2rem;
+        color: #433727;
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-family: "Instrument Serif", serif;
+    }
+
+    .promocao-descricao {
+        font-size: 1rem;
+        color: #5B5B5B;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .promocao-valor {
+        margin-bottom: 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .valor-antigo {
+        font-size: 1.2rem;
+        color: #8C8C8C;
+        text-decoration: line-through;
+    }
+
+    .valor-novo {
+        font-size: 2.5rem;
+        color: #433727;
+        font-weight: 600;
+        font-family: "Instrument Serif", serif;
+    }
+
+    .btn-promocao {
+        border: 2px solid #433727;
+        background: transparent;
+        color: #433727;
+        padding: 16px 40px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: "Instrument Serif", serif;
+        letter-spacing: 0.025em;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .btn-promocao::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #433727;
+        transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: -1;
+    }
+
+    .btn-promocao:hover {
+        color: #FFFFFF;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(67, 55, 39, 0.25);
+    }
+
+    .btn-promocao:hover::before {
+        left: 0;
+    }
+}
+
+/* ===== PROMOÇÕES - MOBILE ===== */
+@media (max-width: 768px) {
+    .promocoes {
+        padding: 100px 20px;
+        text-align: center;
+        background: transparent;
+    }
+
+    .titulo-promocoes {
+        font-size: 2.5rem;
+        color: #433727;
+        font-weight: 500;
+        margin-bottom: 16px;
+        font-family: "Instrument Serif", serif;
+    }
+
+    .subtitulo-promocoes {
+        font-size: 1rem;
+        color: #5B5B5B;
+        margin-bottom: 50px;
+    }
+
+    .cards-promocoes {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .card-promocao {
+        background: #FFFFFF;
+        border: 2px solid rgba(67, 55, 39, 0.08);
+        padding: 40px 30px;
+    }
+
+    .card-promocao.destaque {
+        border: 3px solid #433727;
+        transform: scale(1);
+    }
+
+    .card-promocao h3 {
+        font-size: 1.8rem;
+        color: #433727;
+        margin-bottom: 16px;
+        font-weight: 500;
+        font-family: "Instrument Serif", serif;
+    }
+
+    .promocao-descricao {
+        font-size: 0.95rem;
+        color: #5B5B5B;
+        margin-bottom: 25px;
+    }
+
+    .valor-novo {
+        font-size: 2rem;
+    }
+
+    .btn-promocao {
+        padding: 14px 32px;
+        font-size: 0.95rem;
+    }
+}
+
+/* ===== PROMOÇÕES - TABLET ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .promocoes {
+        padding: 160px 50px;
+    }
+
+    .titulo-promocoes {
+        font-size: 3rem;
+    }
+
+    .cards-promocoes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+
+    .card-promocao.destaque {
+        grid-column: 1 / -1;
+        transform: scale(1);
+    }
+}
+
+/* ===== PROMOÇÕES - MOBILE PEQUENO ===== */
+@media (max-width: 480px) {
+    .promocoes {
+        padding: 80px 15px;
+    }
+
+    .titulo-promocoes {
+        font-size: 2rem;
+    }
+
+    .subtitulo-promocoes {
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+    }
+
+    .card-promocao {
+        padding: 35px 25px;
+    }
+
+    .card-promocao.destaque {
+        transform: scale(1);
+    }
+
+    .card-promocao h3 {
+        font-size: 1.6rem;
+    }
+
+    .valor-novo {
+        font-size: 1.8rem;
+    }
+}
+

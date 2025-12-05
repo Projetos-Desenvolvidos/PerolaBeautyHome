@@ -6,6 +6,24 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+/* ===== REGRAS GERAIS PARA RESPONSIVIDADE ===== */
+section {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 body {
@@ -17,6 +35,8 @@ body {
     text-rendering: optimizeLegibility;
     color: #433727;
     position: relative;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* ===== ANIMAÇÕES DE FUNDO - SALÃO DE BELEZA ===== */
@@ -256,6 +276,14 @@ body::after {
     .hero.visible .text > * {
         opacity: 1;
         transform: translateY(0);
+    }
+
+    .perola-container {
+        margin: 40px 0;
+    }
+
+    .img-perola {
+        width: 250px;
     }
 
     .hero .text > * {
@@ -596,7 +624,8 @@ body::after {
 /* ===== TABLET RESPONSIVIDADE ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
     .hero {
-        padding: 100px 40px;
+        padding: 120px 50px;
+        height: 100vh;
     }
 
     .titulo {
@@ -605,6 +634,108 @@ body::after {
 
     .efeito {
         font-size: 4rem;
+    }
+
+    .text-hero {
+        font-size: 1.2rem;
+        max-width: 100%;
+    }
+
+    .btn-hero {
+        padding: 18px 48px;
+    }
+}
+
+/* ===== MOBILE PEQUENO ===== */
+@media (max-width: 480px) {
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .titulo {
+        font-size: 2rem;
+    }
+
+    .efeito {
+        font-size: 2.5rem;
+    }
+
+    .text-hero {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+
+    .btn-hero {
+        padding: 14px 28px;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Reduzir animações de fundo em mobile */
+    .scissors,
+    .brush {
+        width: 20px;
+        height: 20px;
+        opacity: 0.05;
+    }
+
+    .scissors::before,
+    .brush::before {
+        font-size: 20px;
+    }
+
+    .star {
+        width: 15px;
+        height: 15px;
+        opacity: 0.08;
+    }
+
+    .star::before {
+        font-size: 15px;
+    }
+
+    .beauty-circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .beauty-circle::before {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* ===== ANIMAÇÕES DE FUNDO - TABLET ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .scissors,
+    .brush {
+        width: 25px;
+        height: 25px;
+    }
+
+    .scissors::before,
+    .brush::before {
+        font-size: 25px;
+    }
+
+    .star {
+        width: 18px;
+        height: 18px;
+    }
+
+    .star::before {
+        font-size: 18px;
+    }
+
+    .beauty-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .beauty-circle::before {
+        width: 50px;
+        height: 50px;
     }
 }
 

@@ -302,3 +302,43 @@
         transform: scale(1.3);
     }
 }
+
+/* ===== DEPOIMENTOS - TABLET ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .depoimentos {
+        padding: 160px 50px;
+    }
+
+    .titulo-depoimentos {
+        font-size: 3rem;
+    }
+
+    .cards-depoimentos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+}
+
+/* ===== DEPOIMENTOS - MOBILE PEQUENO ===== */
+@media (max-width: 480px) {
+    .depoimentos {
+        padding: 80px 15px;
+    }
+
+    .titulo-depoimentos {
+        font-size: 2rem;
+    }
+
+    .avaliacao-texto {
+        font-size: 0.95rem;
+        padding: 0 15px;
+    }
+
+    .slider-container-depoimentos {
+        max-width: 100%;
+    }
+
+    .card-depoimento {
+        padding: 28px 20px;
+    }
+}

@@ -217,6 +217,27 @@ function addAnimationClasses() {
   if (footer) {
     footer.classList.add('fade-in-up');
   }
+
+  // Cards de benefícios
+  const beneficioCards = document.querySelectorAll('.card-beneficio');
+  beneficioCards.forEach((card, index) => {
+    card.classList.add('fade-in-scale');
+    card.style.transitionDelay = `${index * 0.1}s`;
+  });
+
+  // Cards de promoções
+  const promocaoCards = document.querySelectorAll('.card-promocao');
+  promocaoCards.forEach((card, index) => {
+    card.classList.add('fade-in-up');
+    card.style.transitionDelay = `${index * 0.15}s`;
+  });
+
+  // Itens FAQ
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item, index) => {
+    item.classList.add('fade-in-up');
+    item.style.transitionDelay = `${index * 0.08}s`;
+  });
 }
 
 // ===== SMOOTH SCROLL PARA LINKS DE ÂNCORA =====
@@ -265,6 +286,9 @@ document.addEventListener("DOMContentLoaded", () => {
   addAnimationClasses();
   initScrollAnimations();
   
+  // FAQ interativo
+  initFAQ();
+  
   // Adiciona animação inicial aos elementos do hero
   const heroElements = document.querySelectorAll('.hero .text > *');
   heroElements.forEach((el, index) => {
@@ -285,6 +309,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, 100);
 });
+
+// ===== FAQ INTERATIVO =====
+function initFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Fecha todos os outros itens
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+        }
+      });
+      
+      // Abre/fecha o item clicado
+      if (isActive) {
+        item.classList.remove('active');
+      } else {
+        item.classList.add('active');
+      }
+    });
+  });
+}
 
 // Reinicializa sliders ao redimensionar (se necessário)
 let resizeTimer;
