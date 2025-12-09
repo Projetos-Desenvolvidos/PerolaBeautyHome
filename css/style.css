@@ -243,8 +243,8 @@ body::after {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 0.2;
-        filter: grayscale(60%) sepia(10%) hue-rotate(5deg) brightness(1.05) contrast(1.1);
+        opacity: 1;
+        filter: none;
         pointer-events: none;
         z-index: 0;
     }
@@ -362,7 +362,7 @@ body::after {
     }
 
     .efeito {
-        color: #DABE99;
+        color: #957141;
         font-weight: 400;
         font-family: "Imperial Script", cursive;
         font-size: 5rem;
@@ -478,8 +478,8 @@ body::after {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 0.18;
-        filter: grayscale(60%) sepia(10%) hue-rotate(5deg) brightness(1.05) contrast(1.1);
+        opacity: 1;
+        filter: none;
         pointer-events: none;
         z-index: 0;
     }
@@ -518,7 +518,7 @@ body::after {
     }
 
     .efeito {
-        color: #DABE99;
+        color: #957141;
         font-weight: 400;
         font-family: "Imperial Script", cursive;
         font-size: 3rem;
