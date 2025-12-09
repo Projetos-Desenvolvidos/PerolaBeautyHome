@@ -198,13 +198,12 @@
         width: 100%;
         max-width: 380px;
         margin: 0 auto;
-        touch-action: pan-y;
     }
 
     .cards-depoimentos {
         display: flex;
         transition: transform 0.4s ease;
-        touch-action: pan-x;
+        touch-action: pan-y pinch-zoom;
         will-change: transform;
     }
 

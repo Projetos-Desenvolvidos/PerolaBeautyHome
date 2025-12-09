@@ -40,8 +40,11 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
 
   let index = 0;
   let startX = 0;
+  let startY = 0;
   let currentX = 0;
+  let currentY = 0;
   let isDragging = false;
+  let isHorizontal = false;
 
   function setPosition() {
     cards.style.transition = 'transform 0.3s ease';
@@ -56,7 +59,7 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
     cards.style.transform = `translateX(calc(-${index * 100}% - ${diff}px))`;
   }
 
-  // Toque (mobile) - melhorado para não interferir com menu
+  // Toque (mobile) - melhorado para não interferir com scroll vertical
   cards.addEventListener('touchstart', (e) => {
     // Só inicia se o menu não estiver aberto
     if (navLinks && navLinks.classList.contains('active')) {
@@ -64,9 +67,10 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
       return;
     }
     
-    e.stopPropagation();
     startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
     isDragging = true;
+    isHorizontal = false;
     cards.style.transition = 'none';
   }, { passive: true });
 
@@ -80,21 +84,39 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
       return;
     }
     
-    e.preventDefault();
-    e.stopPropagation();
     currentX = e.touches[0].clientX;
-    const diff = startX - currentX;
-    moveSlider(diff);
+    currentY = e.touches[0].clientY;
+    
+    const diffX = Math.abs(currentX - startX);
+    const diffY = Math.abs(currentY - startY);
+    
+    // Detecta a direção do gesto após um movimento mínimo
+    if (!isHorizontal && (diffX > 10 || diffY > 10)) {
+      isHorizontal = diffX > diffY;
+    }
+    
+    // Só previne o scroll se o gesto for claramente horizontal
+    if (isHorizontal && diffX > 5) {
+      e.preventDefault();
+      e.stopPropagation();
+      const diff = startX - currentX;
+      moveSlider(diff);
+    } else if (!isHorizontal && diffY > 5) {
+      // Se for vertical, cancela o drag e permite scroll
+      isDragging = false;
+      setPosition();
+    }
   }, { passive: false });
 
   cards.addEventListener('touchend', (e) => {
     if (!isDragging) return;
     
-    e.stopPropagation();
     const diff = startX - currentX;
+    const diffY = Math.abs(startY - currentY);
     const threshold = 50;
     
-    if (Math.abs(diff) > threshold) {
+    // Só muda o slide se o movimento foi horizontal e significativo
+    if (isHorizontal && Math.abs(diff) > threshold && Math.abs(diff) > diffY) {
       if (diff > threshold && index < dots.length - 1) {
         index++;
       } else if (diff < -threshold && index > 0) {
@@ -104,6 +126,7 @@ function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) 
     
     setPosition();
     isDragging = false;
+    isHorizontal = false;
   }, { passive: true });
 
   // Clique nos dots
