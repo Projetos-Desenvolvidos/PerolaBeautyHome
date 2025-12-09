@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const mensagemWhatsApp = formatarMensagemWhatsApp(formData);
             
             // Número do WhatsApp (código do país + DDD + número, sem espaços)
-            const numeroWhatsApp = '5511963185396';
+            const numeroWhatsApp = '5511988677027';
             
             // Cria o link do WhatsApp
             const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhatsApp)}`;
