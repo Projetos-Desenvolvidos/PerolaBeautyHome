@@ -51,6 +51,40 @@ function closeMobileMenu() {
 // Torna a função global
 window.closeMobileMenu = closeMobileMenu;
 
+// ===== MODAL DE IMAGEM =====
+function openImageModal(imageSrc) {
+  // Só abre no mobile
+  if (window.innerWidth <= 768) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    
+    if (modal && modalImg) {
+      modalImg.src = imageSrc;
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // Previne scroll do body
+    }
+  }
+}
+
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) {
+    modal.classList.remove('show');
+    document.body.style.overflow = ''; // Restaura scroll do body
+  }
+}
+
+// Torna as funções globais
+window.openImageModal = openImageModal;
+window.closeImageModal = closeImageModal;
+
+// Fecha modal ao pressionar ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeImageModal();
+  }
+});
+
 if (toggle && toggleIcon) {
   toggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');

@@ -182,7 +182,7 @@
             <button class="btn-hero" onclick="document.getElementById('contato').scrollIntoView({behavior: 'smooth', block: 'start'})">Quero Agendar!</button>
         </div>
         <div class="mae">
-            <div class="imagem">
+            <div class="imagem" onclick="openImageModal('./assets/salao 1.png')">
                 <img src="./assets/salao 1.png" alt="Mulher com maquiagem profissional - Pérola Beauty Home">
             </div>
         </div>
@@ -680,6 +680,12 @@
             <p>&copy; 2024 Pérola Beauty Home. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- MODAL PARA IMAGEM -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage" src="" alt="Imagem ampliada">
+    </div>
 
     <script src="./js/script.js"></script>
     <script src="./js/formulario.js"></script>

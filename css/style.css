@@ -1075,3 +1075,84 @@ body::after {
     position: relative;
     z-index: 1;
 }
+
+/* ===== MODAL DE IMAGEM ===== */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+    cursor: pointer;
+}
+
+.image-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 95%;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #DABE99;
+    transform: scale(1.2);
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Desktop - não mostra cursor pointer na imagem */
+@media (min-width: 769px) {
+    .hero .imagem {
+        cursor: default;
+    }
+    
+    .hero .imagem img {
+        cursor: default;
+    }
+}
+
+/* Mobile - mostra cursor pointer */
+@media (max-width: 768px) {
+    .hero .imagem {
+        cursor: pointer;
+    }
+    
+    .hero .imagem img {
+        cursor: pointer;
+    }
+}
