@@ -37,6 +37,20 @@ const toggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const toggleIcon = toggle?.querySelector('i');
 
+// Função para fechar o menu mobile
+function closeMobileMenu() {
+  if (navLinks && navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+    if (toggleIcon) {
+      toggleIcon.classList.remove('fa-times');
+      toggleIcon.classList.add('fa-bars');
+    }
+  }
+}
+
+// Torna a função global
+window.closeMobileMenu = closeMobileMenu;
+
 if (toggle && toggleIcon) {
   toggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');

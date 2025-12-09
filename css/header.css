@@ -90,13 +90,13 @@
 .menu-toggle {
     display: none;
     font-size: 24px;
-    color: #FFFFFF;
+    color: #433727;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .menu-toggle:hover {
-    color: #F9F7F4;
+    color: #5a4a3a;
 }
 
 /* ===== TABLET ===== */
