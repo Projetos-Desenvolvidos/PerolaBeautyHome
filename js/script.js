@@ -248,9 +248,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        const offsetTop = target.offsetTop - 100;
+        // Calcula offset considerando header fixo
+        const headerHeight = navbar ? navbar.offsetHeight : 80;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        
         window.scrollTo({
-          top: offsetTop,
+          top: Math.max(0, targetPosition),
           behavior: 'smooth'
         });
         
@@ -347,3 +350,18 @@ window.addEventListener('resize', () => {
     }
   }, 250);
 });
+
+// ===== FUNÇÃO PARA SCROLL SUAVE AO FORMULÁRIO =====
+function scrollToForm() {
+  const form = document.getElementById('formulario-lead');
+  if (form) {
+    const navbar = document.querySelector('.navbar');
+    const headerHeight = navbar ? navbar.offsetHeight : 80;
+    const targetPosition = form.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    
+    window.scrollTo({
+      top: Math.max(0, targetPosition),
+      behavior: 'smooth'
+    });
+  }
+}
