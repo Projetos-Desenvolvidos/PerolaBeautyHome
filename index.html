@@ -163,10 +163,10 @@
 
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#equipe">O Pérola</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#home" onclick="document.getElementById('home').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;">Home</a></li>
+                    <li><a href="#servicos" onclick="document.getElementById('servicos').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;">Serviços</a></li>
+                    <li><a href="#equipe" onclick="document.getElementById('equipe').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;">O Pérola</a></li>
+                    <li><a href="#contato" onclick="document.getElementById('contato').scrollIntoView({behavior: 'smooth', block: 'start'}); return false;">Contato</a></li>
                 </ul>
             </nav>
 
@@ -179,7 +179,7 @@
         <div class="text">
             <h1 class="titulo">Pérola Beauty Home <br>Aqui seu brilho é <span class="efeito">Único</span></h1>
             <p class="text-hero">Salão de beleza no Tatuapé especializado em maquiagem, coloração, corte e mechas. Nossa equipe de profissionais qualificados está pronta para realçar sua beleza única e fazer você se sentir especial. Venha nos visitar no Tatuapé, São Paulo!</p>
-            <button class="btn-hero" onclick="scrollToForm()">Quero Agendar!</button>
+            <button class="btn-hero" onclick="document.getElementById('contato').scrollIntoView({behavior: 'smooth', block: 'start'})">Quero Agendar!</button>
         </div>
         <div class="mae">
             <div class="imagem">

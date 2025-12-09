@@ -1,3 +1,37 @@
+// ===== FUNÇÕES GLOBAIS DE SCROLL (disponíveis imediatamente) =====
+function scrollToSection(sectionId) {
+  const target = document.getElementById(sectionId);
+  if (target) {
+    const navbar = document.querySelector('.navbar');
+    const headerHeight = navbar ? navbar.offsetHeight : 100;
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    
+    window.scrollTo({
+      top: Math.max(0, targetPosition),
+      behavior: 'smooth'
+    });
+    
+    // Fecha menu mobile se estiver aberto
+    const navLinks = document.querySelector('.nav-links');
+    const toggleIcon = document.querySelector('.menu-toggle i');
+    if (navLinks && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+      if (toggleIcon) {
+        toggleIcon.classList.remove('fa-times');
+        toggleIcon.classList.add('fa-bars');
+      }
+    }
+  }
+}
+
+function scrollToForm() {
+  scrollToSection('contato');
+}
+
+// Torna as funções globais imediatamente
+window.scrollToSection = scrollToSection;
+window.scrollToForm = scrollToForm;
+
 // MENU
 const toggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -13,19 +47,23 @@ if (toggle && toggleIcon) {
 
 // ===== NAVBAR SCROLL EFFECT =====
 const navbar = document.querySelector('.navbar');
-let lastScroll = 0;
 
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (currentScroll > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
   
-  if (currentScroll > 50) {
-    navbar?.classList.add('scrolled');
-  } else {
-    navbar?.classList.remove('scrolled');
+  // Verifica o estado inicial ao carregar
+  if (window.pageYOffset > 50) {
+    navbar.classList.add('scrolled');
   }
-  
-  lastScroll = currentScroll;
-});
+}
 
 // ===== SLIDERS GENÉRICOS =====
 function initSlider(containerSelector, cardSelector, dotsSelector, activeClass) {
@@ -263,35 +301,31 @@ function addAnimationClasses() {
   });
 }
 
+
 // ===== SMOOTH SCROLL PARA LINKS DE ÂNCORA =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href !== '#' && href !== '') {
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        // Calcula offset considerando header fixo
-        const headerHeight = navbar ? navbar.offsetHeight : 80;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+function initSmoothScroll() {
+  const anchors = document.querySelectorAll('a[href^="#"]');
+  
+  anchors.forEach(anchor => {
+    // Só adiciona listener se não tiver onclick
+    if (!anchor.getAttribute('onclick')) {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
         
-        window.scrollTo({
-          top: Math.max(0, targetPosition),
-          behavior: 'smooth'
-        });
-        
-        // Fecha menu mobile se estiver aberto
-        if (navLinks?.classList.contains('active')) {
-          navLinks.classList.remove('active');
-          if (toggleIcon) {
-            toggleIcon.classList.remove('fa-times');
-            toggleIcon.classList.add('fa-bars');
-          }
+        // Ignora links vazios
+        if (!href || href === '#' || href === '') {
+          return;
         }
-      }
+        
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const sectionId = href.replace('#', '');
+        scrollToSection(sectionId);
+      });
     }
   });
-});
+}
 
 // Função para inicializar sliders mobile
 function initMobileSliders() {
@@ -307,6 +341,9 @@ function initMobileSliders() {
 document.addEventListener("DOMContentLoaded", () => {
   // Sliders (apenas mobile)
   initMobileSliders();
+  
+  // Scroll suave para links
+  initSmoothScroll();
   
   // Animações de scroll
   addAnimationClasses();
@@ -374,17 +411,3 @@ window.addEventListener('resize', () => {
   }, 250);
 });
 
-// ===== FUNÇÃO PARA SCROLL SUAVE AO FORMULÁRIO =====
-function scrollToForm() {
-  const form = document.getElementById('formulario-lead');
-  if (form) {
-    const navbar = document.querySelector('.navbar');
-    const headerHeight = navbar ? navbar.offsetHeight : 80;
-    const targetPosition = form.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-    
-    window.scrollTo({
-      top: Math.max(0, targetPosition),
-      behavior: 'smooth'
-    });
-  }
-}

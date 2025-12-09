@@ -179,25 +179,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Scroll suave para links de âncora (melhorado)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href !== '#' && href !== '') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    const navbar = document.querySelector('.navbar');
-                    const headerHeight = navbar ? navbar.offsetHeight : 80;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    window.scrollTo({
-                        top: Math.max(0, targetPosition),
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
 });
 

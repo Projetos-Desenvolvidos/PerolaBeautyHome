@@ -5,14 +5,17 @@
     justify-content: center;
     align-items: center;
     padding: 0 80px;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    background: rgba(255, 255, 255, 0.726);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 1px 30px rgba(67, 55, 39, 0.06);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     border-bottom: 1px solid rgba(67, 55, 39, 0.08);
 }
 
@@ -26,9 +29,11 @@
 }
 
 .navbar.scrolled {
-    height: 80px;
-    box-shadow: 0 2px 40px rgba(67, 55, 39, 0.1);
-    background: rgba(255, 255, 255, 0.99);
+    height: 80px !important;
+    box-shadow: 0 2px 40px rgba(67, 55, 39, 0.1) !important;
+    background: rgba(255, 255, 255, 0.55) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
 }
 
 .navbar h1 {
@@ -85,13 +90,13 @@
 .menu-toggle {
     display: none;
     font-size: 24px;
-    color: #433727;
+    color: #FFFFFF;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .menu-toggle:hover {
-    color: #5a4a3a;
+    color: #F9F7F4;
 }
 
 /* ===== TABLET ===== */
@@ -123,6 +128,9 @@
 
     .navbar.scrolled {
         height: 70px;
+        background: rgba(255, 255, 255, 0.55) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
     }
 
     .navbar h1 {
