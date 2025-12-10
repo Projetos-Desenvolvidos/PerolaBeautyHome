@@ -220,16 +220,18 @@ body::after {
     .hero {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        flex-direction: row;
         width: 100%;
         max-width: 100%;
         margin: 0;
-        padding: 0 80px;
+        padding: 0 0 0 80px;
         min-height: 100vh;
         height: auto;
         background: transparent;
         position: relative;
-        overflow: hidden;
+        overflow: visible;
+        gap: 60px;
     }
 
     .hero::before {
@@ -243,7 +245,7 @@ body::after {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 1;
+        opacity: 0.3;
         filter: none;
         pointer-events: none;
         z-index: 0;
@@ -264,17 +266,14 @@ body::after {
     }
 
 
-    .hero .text,
-    .hero .mae {
+    .hero .text {
         position: relative;
         z-index: 2;
-    }
-
-    .hero .text {
-        flex: 0 1 auto;
-        max-width: 680px;
-        text-align: center;
-        margin: 0 auto;
+        flex: 1;
+        max-width: 50%;
+        text-align: left;
+        margin: 0;
+        padding-right: 40px;
     }
 
     .hero .text > * {
@@ -303,62 +302,71 @@ body::after {
     }
 
     .hero .mae {
-        display: none;
+        position: absolute;
+        z-index: 3;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        max-width: 50%;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 50%;
+        margin: 0;
+        padding: 0;
     }
 
     .hero .imagem {
         position: relative;
         width: 100%;
-        max-width: 600px;
-        padding: 40px;
-        background: #FFFFFF;
-        border: 2px solid rgba(67, 55, 39, 0.1);
-        box-shadow: 0 20px 60px rgba(67, 55, 39, 0.1);
+        height: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
     }
 
     .hero .imagem::before {
-        content: '';
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-        background: linear-gradient(135deg, rgba(67, 55, 39, 0.05) 0%, transparent 50%);
-        z-index: -1;
+        display: none;
     }
 
     .hero .imagem::after {
-        content: '';
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-        border: 1px solid rgba(67, 55, 39, 0.08);
-        pointer-events: none;
+        display: none;
     }
 
     .hero .imagem img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
+        width: auto;
+        height: 85vh;
+        max-height: 85vh;
+        max-width: 100%;
+        object-fit: contain;
+        object-position: right top;
         display: block;
         position: relative;
-        z-index: 1;
-        filter: grayscale(5%) brightness(1.02);
+        z-index: 3;
+        filter: none;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
     }
 
     .titulo {
         font-size: 4.5rem;
-        text-align: center;
-        margin: 0 auto 40px;
+        text-align: left;
+        margin: 0 0 40px 0;
         color: #433727;
         font-weight: 500;
         line-height: 1.08;
         letter-spacing: -0.04em;
         animation: fadeInUp 1.2s ease-out;
         font-family: "Instrument Serif", serif;
-        max-width: 900px;
+        max-width: 100%;
     }
 
     .efeito {
@@ -373,14 +381,14 @@ body::after {
 
     .text-hero {
         font-size: 1.3rem;
-        margin: 0 auto 56px;
+        margin: 0 0 56px 0;
         color: #5B5B5B;
         font-weight: 400;
         line-height: 1.85;
         letter-spacing: 0.015em;
         animation: fadeInUp 1.1s ease-in-out 0.4s forwards;
-        max-width: 700px;
-        text-align: center;
+        max-width: 100%;
+        text-align: left;
         position: relative;
     }
 
@@ -403,7 +411,7 @@ body::after {
         position: relative;
         overflow: hidden;
         text-decoration: none;
-        margin: 0 auto;
+        margin: 0;
     }
 
     .btn-hero::before {
@@ -458,13 +466,13 @@ body::after {
         display: flex;
         flex-direction: column;
         text-align: center;
-        padding: 80px 20px;
-        min-height: 100vh;
+        padding: 80px 20px 0 20px;
+        min-height: auto;
         height: auto;
         background: transparent;
         position: relative;
-        overflow: hidden;
-        justify-content: center;
+        overflow: visible;
+        justify-content: flex-start;
     }
 
     .hero::before {
@@ -478,7 +486,7 @@ body::after {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        opacity: 1;
+        opacity: 0.3;
         filter: none;
         pointer-events: none;
         z-index: 0;
@@ -491,7 +499,7 @@ body::after {
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(249, 247, 244, 0.95) 100%);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(249, 247, 244, 0.9) 100%);
         pointer-events: none;
         z-index: 1;
     }
@@ -588,27 +596,31 @@ body::after {
     .mae {
         display: flex;
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 40px;
+        margin-left: -20px;
+        margin-right: -20px;
+        width: calc(100% + 40px);
         animation: fadeInUp 1.3s ease-in-out;
+        position: relative;
     }
 
     .hero .imagem {
         position: relative;
         width: 100%;
-        max-width: 95%;
-        margin: 0 auto;
-        padding: 20px;
-        background: #FFFFFF;
-        border: 2px solid rgba(67, 55, 39, 0.1);
-        box-shadow: 0 15px 40px rgba(67, 55, 39, 0.1);
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        background-image: url('../assets/salao 1.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border: none;
+        box-shadow: none;
+        min-height: 300px;
     }
 
     .imagem img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        display: block;
-        filter: grayscale(5%) brightness(1.02);
+        display: none;
     }
 
     /* ===== PÉROLA MOBILE ===== */
@@ -634,12 +646,24 @@ body::after {
 /* ===== TABLET RESPONSIVIDADE ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
     .hero {
-        padding: 120px 50px;
+        padding: 120px 50px 0 50px;
         height: 100vh;
+        gap: 40px;
+    }
+
+    .hero .mae {
+        right: 0;
+        width: 50%;
+    }
+
+    .hero .text {
+        max-width: 50%;
+        padding-right: 20px;
     }
 
     .titulo {
         font-size: 3.5rem;
+        text-align: left;
     }
 
     .efeito {
@@ -649,10 +673,12 @@ body::after {
     .text-hero {
         font-size: 1.2rem;
         max-width: 100%;
+        text-align: left;
     }
 
     .btn-hero {
         padding: 18px 48px;
+        margin: 0;
     }
 }
 
