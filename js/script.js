@@ -375,11 +375,151 @@ function initSmoothScroll() {
   });
 }
 
+// ===== CARROSSEL INFINITO DE RESULTADOS =====
+function initInfiniteCarousel() {
+  const container = document.querySelector('.slider-container-resultados');
+  const cardsContainer = document.querySelector('.cards-resultados');
+  if (!container || !cardsContainer) return;
+
+  const originalCards = Array.from(cardsContainer.querySelectorAll('.card-resultado'));
+  if (originalCards.length === 0) return;
+
+  const cardCount = originalCards.length;
+
+  // Duplica os cards para criar o efeito infinito (3 conjuntos: original + 2 cópias)
+  for (let i = 0; i < 2; i++) {
+    originalCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      cardsContainer.appendChild(clone);
+    });
+  }
+
+  let currentIndex = 0;
+  let isTransitioning = false;
+  let carouselInterval = null;
+
+  // Calcula a largura de um card (incluindo gap)
+  function getCardWidth() {
+    const firstCard = cardsContainer.querySelector('.card-resultado');
+    if (!firstCard) return 0;
+    
+    const cardWidth = firstCard.offsetWidth;
+    const gapValue = window.getComputedStyle(cardsContainer).gap;
+    let gap = 0;
+    
+    if (gapValue && gapValue !== 'normal') {
+      // Pega o primeiro valor do gap (gap pode ter row e column)
+      gap = parseInt(gapValue.split(' ')[0]) || 0;
+    } else {
+      // Gap padrão baseado no tamanho da tela
+      gap = window.innerWidth <= 768 ? 0 : 28;
+    }
+    
+    return cardWidth + gap;
+  }
+
+  function moveCarousel() {
+    if (isTransitioning) return;
+    
+    const cardWidth = getCardWidth();
+    if (cardWidth === 0) return;
+
+    currentIndex++;
+    isTransitioning = true;
+    
+    cardsContainer.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    cardsContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+    // Quando chega ao final do primeiro conjunto, reseta sem transição
+    setTimeout(() => {
+      if (currentIndex >= cardCount) {
+        cardsContainer.style.transition = 'none';
+        currentIndex = 0;
+        cardsContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        
+        // Força reflow para aplicar a mudança
+        void cardsContainer.offsetWidth;
+        
+        // Restaura transição após um pequeno delay
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 50);
+      } else {
+        isTransitioning = false;
+      }
+    }, 600);
+  }
+
+  function startCarousel() {
+    if (carouselInterval) {
+      clearInterval(carouselInterval);
+    }
+    carouselInterval = setInterval(moveCarousel, 2000); // Muda a cada 2 segundos
+  }
+
+  function stopCarousel() {
+    if (carouselInterval) {
+      clearInterval(carouselInterval);
+      carouselInterval = null;
+    }
+  }
+
+  // Inicia o carrossel automático
+  startCarousel();
+
+  // Pausa ao passar o mouse (apenas desktop)
+  if (window.innerWidth > 768) {
+    container.addEventListener('mouseenter', stopCarousel);
+    container.addEventListener('mouseleave', startCarousel);
+  }
+
+  // Pausa ao tocar no mobile
+  let touchTimeout;
+  container.addEventListener('touchstart', () => {
+    stopCarousel();
+    clearTimeout(touchTimeout);
+    touchTimeout = setTimeout(() => {
+      startCarousel();
+    }, 3000); // Retoma após 3 segundos sem toque
+  }, { passive: true });
+
+  // Inicializa a posição
+  setTimeout(() => {
+    const cardWidth = getCardWidth();
+    if (cardWidth > 0) {
+      cardsContainer.style.transform = `translateX(0px)`;
+    }
+  }, 100);
+
+  // Recalcula ao redimensionar
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      const newCardWidth = getCardWidth();
+      if (newCardWidth > 0) {
+        cardsContainer.style.transition = 'none';
+        currentIndex = 0;
+        cardsContainer.style.transform = `translateX(0px)`;
+        isTransitioning = false;
+        
+        // Remove e readiciona listeners de mouse se necessário
+        if (window.innerWidth > 768) {
+          container.removeEventListener('mouseenter', stopCarousel);
+          container.removeEventListener('mouseleave', startCarousel);
+          container.addEventListener('mouseenter', stopCarousel);
+          container.addEventListener('mouseleave', startCarousel);
+        }
+      }
+    }, 250);
+  });
+}
+
 // Função para inicializar sliders mobile
 function initMobileSliders() {
   if (window.innerWidth <= 768) {
     initSlider(".slider-container", ".cards-especialidades", ".dots span", "active");
-    initSlider(".slider-container-resultados", ".cards-resultados", ".dots-resultados span", "active-resultado");
+    // Não inicializa o slider de resultados no mobile, usa o carrossel infinito
     initSlider(".slider-container-depoimentos", ".cards-depoimentos", ".dots-depoimentos span", "active-depoimento");
     initSlider(".slider-container-equipe", ".cards-equipe", ".dots-equipe span", "active-equipe");
   }
@@ -387,6 +527,9 @@ function initMobileSliders() {
 
 // Inicializa todos os sliders e animações
 document.addEventListener("DOMContentLoaded", () => {
+  // Carrossel infinito de resultados (desktop e mobile)
+  initInfiniteCarousel();
+  
   // Sliders (apenas mobile)
   initMobileSliders();
   
