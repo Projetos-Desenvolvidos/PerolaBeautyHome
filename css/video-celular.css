@@ -62,6 +62,7 @@
     display: block;
     border-radius: 25px;
     object-fit: cover;
+    background: #000000;
 }
 
 /* ===== DESKTOP ===== */
@@ -108,7 +109,13 @@
 
     .video-celular {
         max-height: 600px;
+        min-height: 400px;
         border-radius: 25px;
+        background: #000000;
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
     }
 }
 
@@ -124,7 +131,13 @@
 
     .video-celular {
         max-height: 550px;
+        min-height: 350px;
         border-radius: 25px;
+        background: #000000;
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
     }
 }
 
