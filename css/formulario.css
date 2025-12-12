@@ -279,7 +279,7 @@
     height: 45px;
     background: transparent;
     color: #DABE99;
-    border: 2px solid #DABE99;
+    border: none;
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 1.3rem;

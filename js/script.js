@@ -467,21 +467,7 @@ function initInfiniteCarousel() {
   // Inicia o carrossel automático
   startCarousel();
 
-  // Pausa ao passar o mouse (apenas desktop)
-  if (window.innerWidth > 768) {
-    container.addEventListener('mouseenter', stopCarousel);
-    container.addEventListener('mouseleave', startCarousel);
-  }
-
-  // Pausa ao tocar no mobile
-  let touchTimeout;
-  container.addEventListener('touchstart', () => {
-    stopCarousel();
-    clearTimeout(touchTimeout);
-    touchTimeout = setTimeout(() => {
-      startCarousel();
-    }, 3000); // Retoma após 3 segundos sem toque
-  }, { passive: true });
+  // O carrossel continua sempre, mesmo ao clicar ou passar o mouse
 
   // Inicializa a posição
   setTimeout(() => {
@@ -503,13 +489,7 @@ function initInfiniteCarousel() {
         cardsContainer.style.transform = `translateX(0px)`;
         isTransitioning = false;
         
-        // Remove e readiciona listeners de mouse se necessário
-        if (window.innerWidth > 768) {
-          container.removeEventListener('mouseenter', stopCarousel);
-          container.removeEventListener('mouseleave', startCarousel);
-          container.addEventListener('mouseenter', stopCarousel);
-          container.addEventListener('mouseleave', startCarousel);
-        }
+        // Carrossel continua sempre
       }
     }, 250);
   });

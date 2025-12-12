@@ -49,6 +49,8 @@
     <link rel="stylesheet" href="./css/horarios-localizacao.css">
     <link rel="stylesheet" href="./css/promocoes.css">
     <link rel="stylesheet" href="./css/faq.css">
+    <link rel="stylesheet" href="./css/video-celular.css">
+    <link rel="stylesheet" href="./css/whatsapp-float.css">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
@@ -235,6 +237,62 @@
             </div>
         </div>
     </section>
+    
+    <!-- VÍDEO NO CELULAR COM TEXTOS -->
+    <section class="video-celular-section">
+        <div class="video-celular-wrapper">
+            <div class="video-celular-content">
+            <div class="celular-container">
+                <video class="video-celular" loop playsinline webkit-playsinline controls>
+                    <source src="./assets/videoPerola.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            </div>
+            
+            <div class="textos-salao">
+                <h2 class="titulo-video-section">Conheça o Pérola Beauty Home</h2>
+                <p class="subtitulo-video-section">Transformamos sua beleza com dedicação e profissionalismo</p>
+                
+                <div class="destaques-salao">
+                    <div class="destaque-item">
+                        <div class="destaque-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="destaque-texto">
+                            <h3>Experiência Única</h3>
+                            <p>Cada cliente recebe um atendimento personalizado e exclusivo, pensado especialmente para realçar sua beleza natural.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="destaque-item">
+                        <div class="destaque-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="destaque-texto">
+                            <h3>Equipe Qualificada</h3>
+                            <p>Profissionais certificados e apaixonados pelo que fazem, sempre atualizados com as últimas tendências em beleza.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="destaque-item">
+                        <div class="destaque-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="destaque-texto">
+                            <h3>Ambiente Acolhedor</h3>
+                            <p>Um espaço cuidadosamente decorado para proporcionar conforto e relaxamento durante todo o seu atendimento.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-agendar-video" onclick="document.getElementById('formulario-lead').scrollIntoView({behavior: 'smooth'})">
+                    Agende seu Horário
+                </button>
+            </div>
+        </div>
+    </section>
+    
     <!-- Pérola -->
     <div class="perola-container">
         <img src="./assets/perola.png" alt="Imagem de uma pérola decorativa" class="img-perola">
@@ -688,7 +746,6 @@
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
@@ -702,6 +759,11 @@
         <span class="modal-close">&times;</span>
         <img class="modal-content" id="modalImage" src="" alt="Imagem ampliada">
     </div>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/5511988677027" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="./js/script.js"></script>
     <script src="./js/formulario.js"></script>
