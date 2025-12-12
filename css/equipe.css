@@ -70,14 +70,14 @@
         background: transparent;
         border-radius: 0;
         box-shadow: none;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         border: none;
         position: relative;
         overflow: visible;
     }
 
     .card-equipe:hover {
-        transform: translateY(-8px);
+        transform: translateY(-12px);
     }
 
     .card-equipe img {
@@ -95,7 +95,9 @@
 
     .card-equipe:hover img {
         filter: grayscale(0%);
-        box-shadow: 0 12px 40px rgba(67, 55, 39, 0.2);
+        box-shadow: 0 16px 50px rgba(67, 55, 39, 0.25),
+                    0 6px 20px rgba(67, 55, 39, 0.15);
+        transform: scale(1.02);
     }
 
     .card-equipe h3 {

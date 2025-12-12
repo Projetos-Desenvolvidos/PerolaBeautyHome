@@ -69,11 +69,12 @@
     .card-depoimento {
         background: #FFFFFF;
         border-radius: 0;
-        padding: 48px;
+        padding: 52px;
         color: #433727;
-        box-shadow: 0 8px 35px rgba(67, 55, 39, 0.08);
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 2px solid rgba(67, 55, 39, 0.08);
+        box-shadow: 0 10px 45px rgba(67, 55, 39, 0.1),
+                    0 4px 16px rgba(67, 55, 39, 0.06);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid rgba(67, 55, 39, 0.12);
         position: relative;
     }
 
@@ -94,9 +95,10 @@
     }
 
     .card-depoimento:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 60px rgba(67, 55, 39, 0.12);
-        border-color: rgba(67, 55, 39, 0.18);
+        transform: translateY(-12px);
+        box-shadow: 0 24px 80px rgba(67, 55, 39, 0.18),
+                    0 8px 24px rgba(67, 55, 39, 0.12);
+        border-color: rgba(218, 190, 153, 0.3);
     }
 
     .estrelas {
